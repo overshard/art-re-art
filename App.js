@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Image source={require('./assets/art-re-art-logo.png')} style={{width: 300, height: 300}} />
+        <Text>Art/Re/Art</Text>
       </View>
     );
   }

@@ -20,3 +20,12 @@ Open your favorite editor in the Art/Re/Art directory, I prefer VS Code:
 Open a terminal instance inside of the Art/Re/Art directory and run it:
 
     npm start
+
+
+## Functionality
+
+- QR Code Scanner
+- Artists Directory
+- Art Work Directory
+- About Art/Re/Art
+- Camera to take images and upload to gallery
