@@ -34,3 +34,9 @@ Open a terminal instance inside of the Art/Re/Art directory and run it:
 - About Art/Re/Art
 - Camera to take images and upload to gallery
 - Scavenger Hunt
+
+## Tasks
+
+- App Icon
+- Splash Screen
+- Icons for each navigation screen
