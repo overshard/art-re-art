@@ -1,0 +1,22 @@
+# Art/Re/Art Mobile Companion App
+
+This is the mobile companion app for the Art/Re/Art events in, and around,
+Morganton, NC.
+
+## Getting started
+
+Pull the repo from GitHub:
+
+    git clone https://github.com/overshard/art-re-art.git
+
+Install the expo-cli utility globally:
+
+    npm i -g expo-cli
+
+Open your favorite editor in the Art/Re/Art directory, I prefer VS Code:
+
+    code art-re-art
+
+Open a terminal instance inside of the Art/Re/Art directory and run it:
+
+    npm start
