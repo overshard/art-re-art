@@ -1,22 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image source={require('./assets/art-re-art-logo.png')} style={{width: 300, height: 300}} />
-        <Text>Art/Re/Art</Text>
-      </View>
-    );
-  }
-}
+import HomeScreen from './screens/HomeScreen';
+import EventsScreen from './screens/EventsScreen';
+import ArtistsScreen from './screens/ArtistsScreen';
+import CuriosScreen from './screens/CuriosScreen';
+import AboutScreen from './screens/AboutScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+const TabNavigator = createBottomTabNavigator({
+  Home: HomeScreen,
+  Events: EventsScreen,
+  Artists: ArtistsScreen,
+  Curios: CuriosScreen,
+  About: AboutScreen,
 });
+
+
+export default createAppContainer(TabNavigator);
