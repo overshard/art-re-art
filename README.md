@@ -13,6 +13,10 @@ Install the expo-cli utility globally:
 
     npm i -g expo-cli
 
+Install the npm requirements:
+
+    npm i
+
 Open your favorite editor in the Art/Re/Art directory, I prefer VS Code:
 
     code art-re-art
