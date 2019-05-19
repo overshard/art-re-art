@@ -1,8 +1,8 @@
 import React from 'react';
-
 import { Text, View, Image } from 'react-native';
-import Event from '../components/Event';
 
+import Event from '../components/Event';
+import TitleText from '../components/TitleText';
 
 export default class HomeScreen extends React.Component {
   render() {
@@ -12,9 +12,9 @@ export default class HomeScreen extends React.Component {
           <Image source={require('../assets/art-re-art-logo.png')} style={{width: 300, height: 300}} />
         </View>
         <View style={{ flex: 1, margin: 15 }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 15 }}>
+          <TitleText style={{ marginBottom: 15 }}>
             Next Event
-          </Text>
+          </TitleText>
           <Event
             title="Second Show"
             date="TBD"
