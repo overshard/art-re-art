@@ -3,12 +3,14 @@ import React from 'react';
 import { createBottomTabNavigator, createAppContainer, withOrientation } from 'react-navigation';
 import { Text, View, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Font } from 'expo';
+import { AppLoading, Font } from 'expo';
 
 import HomeScreen from './screens/HomeScreen';
 import EventsScreen from './screens/EventsScreen';
 import AboutScreen from './screens/AboutScreen';
 import SettingsScreen from './screens/SettingsScreen';
+
+import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 
 
 const AppNavigator = createBottomTabNavigator(
@@ -54,31 +56,50 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
   state = {
-    fontLoaded: false,
+    appIsReady: false,
   };
 
-  async componentDidMount() {
-    await Font.loadAsync({
-      'special-elite': require('./assets/SpecialElite.ttf'),
-    });
+  componentWillMount() {
+    this._loadAssetsAsync();
+  }
 
-    this.setState({ fontLoaded: true });
+  async _loadAssetsAsync() {
+    try {
+      await cacheAssetsAsync({
+        images: [
+          require('./assets/art-re-art-logo.png')
+        ],
+        fonts: [
+          {
+            'special-elite': require('./assets/SpecialElite.ttf'),
+          },
+        ],
+      });
+    } catch (e) {
+      console.warn(
+        'There was an error caching assets (see: main.js), perhaps due to a ' +
+          'network timeout, so we skipped caching. Reload the app to try again.'
+      );
+      console.log(e.message);
+    } finally {
+      this.setState({ appIsReady: true });
+    }
   }
 
   render() {
-    return (
-      <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
-        <View style={{ padding: 15, backgroundColor: 'black' }}>
-          {
-            this.state.fontLoaded ? (
-              <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold', fontFamily: 'special-elite' }}>
-                Art/Re/Art
-              </Text>
-            ) : null
-          }
-        </View>
-        <AppContainer />
-      </SafeAreaView>
-    );
+    if (this.state.appIsReady) {
+      return (
+        <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
+          <View style={{ padding: 15, backgroundColor: 'black' }}>
+            <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>
+              Art/Re/Art
+            </Text>
+          </View>
+          <AppContainer />
+        </SafeAreaView>
+      );
+    } else {
+      return <AppLoading />
+    }
   }
 }
