@@ -23,8 +23,8 @@ export default class HomeNextEvent extends React.Component {
           </View>
           <View style={{ padding: 10 }}>
             <Text style={{ fontWeight: 'bold' }}>Second Show</Text>
-            <Text>Date: TBD</Text>
-            <Text>Location: TBD</Text>
+            <Text>Date: October 5th, 2019</Text>
+            <Text>Location: 202 S. Sterling St., Morganton, NC 28655</Text>
           </View>
         </View>
       </View>
