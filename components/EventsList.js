@@ -22,8 +22,8 @@ export default class EventsList extends React.Component {
           </View>
           <View style={{ padding: 10 }}>
             <Text style={{ fontWeight: 'bold' }}>Second Show</Text>
-            <Text>Date: TBD</Text>
-            <Text>Location: TBD</Text>
+            <Text>Date: October 5th, 2019</Text>
+            <Text>Location: 202 S. Sterling St., Morganton, NC 28655</Text>
           </View>
         </View>
         <View style={{ marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#ececec', borderWidth: 1, borderColor: '#ececec', borderBottomWidth: 0, shadowColor: '#cccccc', shadowRadius: 1, shadowOpacity: 1, shadowOffset: { width: 0, height: 1 }, backgroundColor: '#ffffff' }}>
@@ -48,7 +48,7 @@ export default class EventsList extends React.Component {
           </View>
           <View style={{ padding: 10 }}>
             <Text style={{ fontWeight: 'bold' }}>First Show</Text>
-            <Text>Date: April 13th</Text>
+            <Text>Date: April 13th, 2019</Text>
             <Text>Location: 202 S. Sterling St.</Text>
           </View>
         </View>
