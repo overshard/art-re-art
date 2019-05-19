@@ -8,7 +8,7 @@ export default class HomeNextEvent extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, margin: 15 }}>
-        <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 15 }}>Upcoming</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 15 }}>upcoming</Text>
         <View style={{ marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#ececec', borderWidth: 1, borderColor: '#ececec', borderBottomWidth: 0, shadowColor: '#cccccc', shadowRadius: 1, shadowOpacity: 1, shadowOffset: { width: 0, height: 1 }, backgroundColor: '#ffffff' }}>
           <View style={{ height: 150 }}>
             <MapView
