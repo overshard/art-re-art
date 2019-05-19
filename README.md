@@ -44,3 +44,8 @@ Open a terminal instance inside of the Art/Re/Art directory and run it:
 ## Documentation
 
 - Navigation documentation: https://reactnavigation.org/docs/
+
+
+## Notes
+
+- For font loading in App.js use https://github.com/expo/new-project-template/blob/d6a440b01801fbeb323265e39a155d969ab6827f/App.js#L19-L37
