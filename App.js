@@ -3,6 +3,7 @@ import React from 'react';
 import { createBottomTabNavigator, createAppContainer, withOrientation } from 'react-navigation';
 import { Text, View, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Font } from 'expo';
 
 import HomeScreen from './screens/HomeScreen';
 import EventsScreen from './screens/EventsScreen';
@@ -52,11 +53,29 @@ const AppContainer = createAppContainer(AppNavigator);
 
 
 export default class App extends React.Component {
+  state = {
+    fontLoaded: false,
+  };
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'special-elite': require('./assets/SpecialElite.ttf'),
+    });
+
+    this.setState({ fontLoaded: true });
+  }
+
   render() {
     return (
       <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
         <View style={{ padding: 15, backgroundColor: 'black' }}>
-          <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>Art/Re/Art</Text>
+          {
+            this.state.fontLoaded ? (
+              <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold', fontFamily: 'special-elite' }}>
+                Art/Re/Art
+              </Text>
+            ) : null
+          }
         </View>
         <AppContainer />
       </SafeAreaView>
