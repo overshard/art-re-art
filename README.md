@@ -40,3 +40,8 @@ Open a terminal instance inside of the Art/Re/Art directory and run it:
 - App Icon
 - Splash Screen
 - Icons for each navigation screen
+
+
+## Documentation
+
+- Navigation documentation: https://reactnavigation.org/docs/
