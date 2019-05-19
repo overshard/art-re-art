@@ -4,48 +4,32 @@ Companion app for a series of pop up art events in downtown Morganton, NC.
 
 ## Getting started
 
-Pull the repo from GitHub:
-
-    git clone https://github.com/overshard/art-re-art.git
-
-Install the expo-cli utility globally:
+Make sure you have xcode and node installed both at the latest. Run xcode
+atleast once to make sure it's fully installed.
 
     npm i -g expo-cli
-
-Install the npm requirements:
-
+    git clone https://github.com/art-re-art/art-re-art-mobile.git
+    cd art-re-art-mobile
     npm i
-
-Open your favorite editor in the Art/Re/Art directory, I prefer VS Code:
-
-    code art-re-art
-
-Open a terminal instance inside of the Art/Re/Art directory and run it:
-
     npm start
-
 
 ## Functionality
 
 - QR Code Scanner
+- Events Directory
 - Artists Directory
 - Art Work Directory
 - About Art/Re/Art
-- Camera to take images and upload to gallery
-- Scavenger Hunt
-
-## Tasks
-
-- App Icon
-- Splash Screen
-- Icons for each navigation screen
-
+- Settings to configure notifications, signup for things?
+- Event goer gallery for people to take images and upload on the spot
+- Scavenger hunt
 
 ## Documentation
 
-- Navigation documentation: https://reactnavigation.org/docs/
+- Navigation: https://reactnavigation.org/docs/
+- Icons: https://expo.github.io/vector-icons/
+- Expo SDK: https://docs.expo.io/versions/v32.0.0/sdk/overview/
 
+## On release
 
-## Notes
-
-- For font loading in App.js use https://github.com/expo/new-project-template/blob/d6a440b01801fbeb323265e39a155d969ab6827f/App.js#L19-L37
+- For Android deploys we need to setup Google Maps mobile API key: https://docs.expo.io/versions/v32.0.0/sdk/map-view/
