@@ -1,7 +1,6 @@
-# Art/Re/Art Mobile Companion App
+# Art/Re/Art Mobile
 
-This is the mobile companion app for the Art/Re/Art events in, and around,
-Morganton, NC.
+Companion app for a series of pop up art events in downtown Morganton, NC.
 
 ## Getting started
 

@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Art/Re/Art",
+    "description": "Companion app for a series of pop up art events in downtown Morganton, NC.",
     "slug": "art-re-art",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -10,6 +11,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
+    "githubUrl": "https://github.com/art-re-art/art-re-art-mobile",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
