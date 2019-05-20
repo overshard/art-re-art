@@ -9,9 +9,9 @@ export default class Event extends React.Component {
       <View style={styles.eventView}>
         <Image
           source={require('../assets/images/placeholder.jpg')}
-          style={{ resizeMode: 'cover', width: Dimensions.get('window').width-30, height: 300, borderRadius: 10 }}
+          style={styles.eventImage}
         />
-        <View style={{ padding: 25, position: 'absolute', bottom: 0 }}>
+        <View style={styles.eventDescription}>
           <View style={{ flexDirection: 'row', marginBottom: 10 }}>
             <View style={{ alignItems: 'center', backgroundColor: '#ffffff', opacity: .7, borderRadius: 10, padding: 10 }}>
               <Text style={{ fontWeight: 'bold', letterSpacing: 3, fontSize: 16 }}>{this.props.dateDay}</Text>
@@ -49,5 +49,16 @@ const styles = StyleSheet.create({
     },
     backgroundColor: '#ffffff',
     borderRadius: 10,
+  },
+  eventImage: {
+    resizeMode: 'cover',
+    width: Dimensions.get('window').width - 30,
+    height: 300,
+    borderRadius: 10,
+  },
+  eventDescription: {
+    padding: 25,
+    position: 'absolute',
+    bottom: 0,
   },
 });
