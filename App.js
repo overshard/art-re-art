@@ -7,6 +7,7 @@ import { AppLoading, Font } from 'expo';
 
 import HomeScreen from './screens/HomeScreen';
 import EventsScreen from './screens/EventsScreen';
+import ScannerScreen from './screens/ScannerScreen';
 import AboutScreen from './screens/AboutScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
@@ -17,6 +18,7 @@ const AppNavigator = createBottomTabNavigator(
   {
     Home: HomeScreen,
     Events: EventsScreen,
+    Scanner: ScannerScreen,
     About: AboutScreen,
     Settings: SettingsScreen,
   },
@@ -31,6 +33,9 @@ const AppNavigator = createBottomTabNavigator(
         }
         else if (routeName === 'About') {
           iconName = `ios-information-circle`;
+        }
+        else if (routeName === 'Scanner') {
+          iconName = `ios-barcode`;
         }
         else if (routeName === 'Events') {
           iconName = `ios-calendar`;
