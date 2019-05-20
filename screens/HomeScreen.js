@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
 
 import Event from '../components/Event';
 import TitleText from '../components/TitleText';
+
 
 export default class HomeScreen extends React.Component {
   render() {

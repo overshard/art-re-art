@@ -1,23 +1,18 @@
 import React from 'react';
-
 import { Text, View } from 'react-native';
 
 import Event from '../components/Event';
-import TitleText from '../components/TitleText';
+import TitleView from '../components/TitleView';
 
 
 export default class EventsScreen extends React.Component {
   render() {
     return (
       <View>
-        <View style={{ margin: 15 }}>
-          <TitleText style={{ marginBottom: 15 }}>
-            Future and past events
-          </TitleText>
-          <Text style={{ color: '#555555' }}>
-            Shows can happen anytime anywhere! Keep our app installed to get notifications of new events.
-          </Text>
-        </View>
+        <TitleView
+          title="Future and past events"
+          description="Shows can happen anytime anywhere! Keep our app installed to get notifications of new events."
+        />
         <View style={{ margin: 15 }}>
           <Event
             title="Second Show"
