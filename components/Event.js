@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Text, View } from 'react-native';
 import { MapView } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
 
 
 export default class Event extends React.Component {
@@ -31,6 +32,7 @@ export default class Event extends React.Component {
           <Text style={{ fontWeight: 'bold' }}>{ this.props.title }</Text>
           <Text>Date: { this.props.date }</Text>
           <Text>Location: { this.props.location }</Text>
+          <Ionicons name="ios-arrow-forward" size={25} style={{ position: 'absolute', padding: 10, right: 0, bottom: 0 }} />
         </View>
       </View>
     );
