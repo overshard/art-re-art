@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import Event from '../components/Event';
-import TitleView from '../components/TitleView';
+import { TitleView } from '../components/Views';
 
 
 export default class EventsScreen extends React.Component {

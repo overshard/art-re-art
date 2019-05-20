@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import TitleText from './TitleText';
+import { TitleText } from './Texts';
 
 
-export default class TitleView extends React.Component {
+export class TitleView extends React.Component {
   render() {
       return (
         <View style={{ margin: 15 }}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import TitleView from '../components/TitleView';
+import { TitleView } from '../components/Views';
 
 
 export default class AboutScreen extends React.Component {
