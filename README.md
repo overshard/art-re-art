@@ -26,9 +26,10 @@ atleast once to make sure it's fully installed.
 
 ## Documentation
 
+- Expo SDK: https://docs.expo.io/versions/v32.0.0/sdk/overview/
+- React Native: https://facebook.github.io/react-native/docs/getting-started
 - Navigation: https://reactnavigation.org/docs/
 - Icons: https://expo.github.io/vector-icons/
-- Expo SDK: https://docs.expo.io/versions/v32.0.0/sdk/overview/
 
 ## On release
 
