@@ -72,12 +72,12 @@ export default class App extends React.Component {
     try {
       await cacheAssetsAsync({
         images: [
-          require('./assets/art-re-art-logo.png'),
-          require('./assets/placeholder.jpg'),
+          require('./assets/images/art-re-art-logo.png'),
+          require('./assets/images/placeholder.jpg'),
         ],
         fonts: [
           {
-            'special-elite': require('./assets/SpecialElite.ttf'),
+            'special-elite': require('./assets/fonts/SpecialElite.ttf'),
           },
         ],
       });

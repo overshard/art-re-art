@@ -12,9 +12,9 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "githubUrl": "https://github.com/art-re-art/art-re-art-mobile",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

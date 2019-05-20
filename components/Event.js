@@ -9,7 +9,7 @@ export default class Event extends React.Component {
     return (
       <View style={styles.eventView}>
         <Image
-          source={require('../assets/placeholder.jpg')}
+          source={require('../assets/images/placeholder.jpg')}
           style={{ resizeMode: 'cover', width: Dimensions.get('window').width-30, height: 300, borderRadius: 10 }}
         />
         <View style={{ padding: 25, position: 'absolute', bottom: 0 }}>
