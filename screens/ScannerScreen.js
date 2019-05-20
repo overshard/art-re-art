@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
-import { Constants, Permissions, BarCodeScanner } from 'expo';
+import { View, StyleSheet, Button, Dimensions } from 'react-native';
+import { Permissions, BarCodeScanner } from 'expo';
 
 import { TitleView } from '../components/Views';
 
@@ -20,19 +20,28 @@ export default class ScannerScreen extends React.Component {
     const { hasCameraPermission, scanned } = this.state;
 
     if (hasCameraPermission === null) {
-      return <Text>Requesting for camera permission</Text>;
+      return (
+        <TitleView
+          title="Scanner"
+          description="Requesting camera permissions"
+        />
+      );
     }
     if (hasCameraPermission === false) {
-      return <Text>No access to camera</Text>;
+      return (
+        <TitleView
+          title="Scanner"
+          description="Permission denied for your camera :("
+        />
+      );
     }
     return (
       <View
         style={{
           flex: 1,
-          justifyContent: 'flex-end',
         }}>
 
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: '#ffffff', position: 'absolute', zIndex: 2, width: Dimensions.get('window').width }}>
           <TitleView title="Scanner" description="See a QR code? Give it a scan..." />
         </View>
 
