@@ -72,7 +72,8 @@ export default class App extends React.Component {
     try {
       await cacheAssetsAsync({
         images: [
-          require('./assets/art-re-art-logo.png')
+          require('./assets/art-re-art-logo.png'),
+          require('./assets/placeholder.jpg'),
         ],
         fonts: [
           {
