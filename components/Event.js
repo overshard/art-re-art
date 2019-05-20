@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View, Image } from 'react-native';
-import { MapView } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
 
