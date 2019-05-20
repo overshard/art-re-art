@@ -4,6 +4,8 @@ import { Dimensions, StyleSheet, ScrollView, View, Image } from 'react-native';
 import Event from '../components/Event';
 import { TitleText } from '../components/Texts';
 
+import EventsData from '../data/events.json';
+
 
 export default class HomeScreen extends React.Component {
   render() {
@@ -19,14 +21,7 @@ export default class HomeScreen extends React.Component {
           <TitleText style={styles.nextEventTitle}>
             Next Event
           </TitleText>
-          <Event
-            title="Second Show"
-            dateDay="13"
-            dateMonth="APR"
-            dateTime="12:00 PM - 5:30 PM"
-            locationName="Giles Motors"
-            location="202 S. Sterling St."
-          />
+          <Event {...EventsData.events[0]} />
         </View>
       </ScrollView>
     );
