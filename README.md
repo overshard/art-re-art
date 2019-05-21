@@ -34,3 +34,7 @@ atleast once to make sure it's fully installed.
 ## On release
 
 - For Android deploys we need to setup Google Maps mobile API key: https://docs.expo.io/versions/v32.0.0/sdk/map-view/
+
+## Running emulator on Windows
+
+    emulator.exe -avd Pixel_3_API_28 -dns-server 8.8.8.8
