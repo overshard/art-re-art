@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Button, Dimensions } from "react-native";
+import { StyleSheet, View, Button, Dimensions } from "react-native";
 import { Permissions, BarCodeScanner } from "expo";
 
 import { TitleView } from "../components/Views";

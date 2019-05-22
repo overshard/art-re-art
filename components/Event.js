@@ -3,7 +3,6 @@ import {
   Modal,
   TouchableHighlight,
   Dimensions,
-  StyleSheet,
   Text,
   View,
   Image,
@@ -51,14 +50,36 @@ export default class Event extends React.Component {
         </Modal>
         <TouchableHighlight
           onPress={() => this._onPress()}
-          style={styles.eventView}
+          style={{
+            marginBottom: 15,
+            shadowColor: "#000000",
+            shadowRadius: 2,
+            shadowOpacity: 1,
+            shadowOffset: {
+              width: 2,
+              height: 2
+            },
+            backgroundColor: "#ffffff",
+            borderRadius: 10
+          }}
         >
           <View>
             <Image
               source={require("../assets/images/placeholder.jpg")}
-              style={styles.eventImage}
+              style={{
+                resizeMode: "cover",
+                width: Dimensions.get("window").width - 30,
+                height: 300,
+                borderRadius: 10
+              }}
             />
-            <View style={styles.eventDescription}>
+            <View
+              style={{
+                padding: 25,
+                position: "absolute",
+                bottom: 0
+              }}
+            >
               <View style={{ flexDirection: "row", marginBottom: 10 }}>
                 <View
                   style={{
@@ -148,29 +169,3 @@ export default class Event extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  eventView: {
-    marginBottom: 15,
-    shadowColor: "#000000",
-    shadowRadius: 2,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 2,
-      height: 2
-    },
-    backgroundColor: "#ffffff",
-    borderRadius: 10
-  },
-  eventImage: {
-    resizeMode: "cover",
-    width: Dimensions.get("window").width - 30,
-    height: 300,
-    borderRadius: 10
-  },
-  eventDescription: {
-    padding: 25,
-    position: "absolute",
-    bottom: 0
-  }
-});
