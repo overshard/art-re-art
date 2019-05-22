@@ -1,13 +1,28 @@
 {
-    "artists": [
-        {
-            "name": "Nancy VanNoppen"
-        },
-        {
-            "name": "Jean VanNoppen"
-        },
-        {
-            "name": "Allen VanNoppen"
-        }
-    ]
+  "artists": [
+    {
+      "name": "Nancy VanNoppen",
+      "instagram": "https://www.instagram.com/nancyvannoppen/",
+      "website": "https://www.nancyvannoppen.com/",
+      "medium": "Installation"
+    },
+    {
+      "name": "MaxFlex",
+      "instagram": "https://www.instagram.com/max.flex.5855/",
+      "website": "https://www.maxflex.me/",
+      "medium": "Installation"
+    },
+    {
+      "name": "Jean VanNoppen Sr.",
+      "instagram": null,
+      "website": null,
+      "medium": "Interactive"
+    },
+    {
+      "name": "Jean VanNoppen Jr.",
+      "instagram": null,
+      "website": null,
+      "medium": "Interactive"
+    }
+  ]
 }

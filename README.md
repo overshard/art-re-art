@@ -37,4 +37,4 @@ atleast once to make sure it's fully installed.
 
 ## Running emulator on Windows
 
-    emulator.exe -avd Pixel_3_API_28 -dns-server 8.8.8.8
+    emulator.exe -avd Pixel_3_API_28 -dns-server 8.8.8.8 &
