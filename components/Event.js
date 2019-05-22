@@ -8,12 +8,12 @@ export default class Event extends React.Component {
     modalVisible: false,
   };
 
-  setModalVisible(visible) {
+  _setModalVisible = (visible) => {
     this.setState({modalVisible: visible});
   }
 
-  onPress = () => {
-    this.setModalVisible(true);
+  _onPress = () => {
+    this._setModalVisible(true);
   }
 
   render() {
@@ -24,7 +24,7 @@ export default class Event extends React.Component {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
+            this._setModalVisible(!this.state.modalVisible);
           }}>
           <View style={{marginTop: 22}}>
             <View>
@@ -32,42 +32,44 @@ export default class Event extends React.Component {
 
               <TouchableHighlight
                 onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
+                  this._setModalVisible(!this.state.modalVisible);
                 }}>
                 <Text>Hide Modal</Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
-        <View
-          onStartShouldSetResponder={() => this.onPress()}
+        <TouchableHighlight
+          onPress={() => this._onPress()}
           style={styles.eventView}
         >
-          <Image
-            source={require('../assets/images/placeholder.jpg')}
-            style={styles.eventImage}
-          />
-          <View style={styles.eventDescription}>
-            <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-              <View style={{ alignItems: 'center', backgroundColor: '#ffffff', opacity: .7, borderRadius: 10, padding: 10 }}>
-                <Text style={{ fontWeight: 'bold', letterSpacing: 3, fontSize: 16 }}>{this.props.dateDay}</Text>
-                <Text style={{ letterSpacing: 2, textTransform: 'uppercase' }}>{this.props.dateMonth}</Text>
+          <View>
+            <Image
+              source={require('../assets/images/placeholder.jpg')}
+              style={styles.eventImage}
+            />
+            <View style={styles.eventDescription}>
+              <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                <View style={{ alignItems: 'center', backgroundColor: '#ffffff', opacity: .7, borderRadius: 10, padding: 10 }}>
+                  <Text style={{ fontWeight: 'bold', letterSpacing: 3, fontSize: 16 }}>{this.props.dateDay}</Text>
+                  <Text style={{ letterSpacing: 2, textTransform: 'uppercase' }}>{this.props.dateMonth}</Text>
+                </View>
+                <View style={{ justifyContent: 'center' }}>
+                  <Text style={{ fontWeight: 'bold', fontSize: 18, textTransform: 'uppercase', color: 'white', marginLeft: 15, letterSpacing: 1 }}>{this.props.title}</Text>
+                  <Text style={{ fontSize: 14, textTransform: 'uppercase', color: 'white', marginLeft: 15, letterSpacing: 1 }}>{this.props.dateTime}</Text>
+                </View>
               </View>
-              <View style={{ justifyContent: 'center' }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 18, textTransform: 'uppercase', color: 'white', marginLeft: 15, letterSpacing: 1 }}>{this.props.title}</Text>
-                <Text style={{ fontSize: 14, textTransform: 'uppercase', color: 'white', marginLeft: 15, letterSpacing: 1 }}>{this.props.dateTime}</Text>
-              </View>
-            </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons name="ios-car" size={25} style={{ color: '#ffffff', marginRight: 10 }} />
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ color: '#ffffff', fontSize: 18, fontWeight: 'bold' }}>{this.props.locationName}</Text>
-                <Text style={{ color: '#ffffff', fontSize: 22, marginLeft: 5, marginRight: 5 }}>|</Text>
-                <Text style={{ color: '#ffffff', fontSize: 14 }}>{this.props.location}</Text>
+                <Ionicons name="ios-car" size={25} style={{ color: '#ffffff', marginRight: 10 }} />
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={{ color: '#ffffff', fontSize: 18, fontWeight: 'bold' }}>{this.props.locationName}</Text>
+                  <Text style={{ color: '#ffffff', fontSize: 22, marginLeft: 5, marginRight: 5 }}>|</Text>
+                  <Text style={{ color: '#ffffff', fontSize: 14 }}>{this.props.location}</Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
+        </TouchableHighlight>
       </View>
     );
   }
