@@ -44,11 +44,6 @@ export default class App extends React.Component {
     if (this.state.appIsReady) {
       return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
-          <View style={{ padding: 15, backgroundColor: 'black' }}>
-            <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>
-              Art/Re/Art
-            </Text>
-          </View>
           <AppContainer />
         </SafeAreaView>
       );
