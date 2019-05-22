@@ -1,62 +1,72 @@
 import React from 'react';
-import { View, ScrollView, FlatList, ActivityIndicator } from 'react-native';
+import { View, ScrollView, FlatList, ActivityIndicator, Text, RefreshControl } from 'react-native';
 import moment from 'moment';
 
 import Event from '../components/Event';
 import { TitleView } from '../components/Views';
 
-export default class EventsScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-    }
-  }
 
-  componentDidMount(){
-    return fetch('http://art-re-art.herokuapp.com/api/events/')
-      .then((response) => response.json())
-      .then((events) => {
-        fetch('http://art-re-art.herokuapp.com/api/eventlocations/')
-          .then((response) => response.json())
-          .then((eventLocations) => {
-            let completeEvents = events.map(event => {
-              let datetime = moment(event.datetime);
-              event.dateDay = datetime.format('DD');
-              event.dateMonth = datetime.format('MMM');
-              event.dateTime = datetime.format('h:mm A');
-              event.location = eventLocations.find(location => {
-                return event.location === location.url;
-              });
-              return event;
-            });
-            this.setState({
-              isLoading: false,
-              dataSource: completeEvents,
-            });
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+export default class EventsScreen extends React.Component {
+  state = {
+    isLoading: true,
+    dataSource: null,
   }
 
   _keyExtractor = (item, index) => item.url;
 
+  _fetchEvents = () => {
+    this.setState({
+      isLoading: true,
+      dataSource: null,
+    });
+    let eventsFetch = fetch('http://art-re-art.herokuapp.com/api/events/')
+      .then((res) => {return res.json()})
+      .catch((err) => {console.error(err)});
+    let eventLocationsFetch = fetch('http://art-re-art.herokuapp.com/api/eventlocations/')
+      .then((res) => {return res.json()})
+      .catch((err) => {console.error(err)});
+    return Promise.all([eventsFetch, eventLocationsFetch])
+      .then(([eventsResponse, eventLocationsResponse]) => {
+        let events = eventsResponse.map(event => {
+          let datetime = moment(event.datetime);
+          event.dateDay = datetime.format('DD');
+          event.dateMonth = datetime.format('MMM');
+          event.dateTime = datetime.format('h:mm A');
+          event.location = eventLocationsResponse.find(location => {
+            return event.location === location.url;
+          });
+          return event;
+        });
+        this.setState({
+          isLoading: false,
+          dataSource: events,
+        });
+      })
+      .catch((err) => {console.error(err);});
+  }
+
+  componentDidMount() {
+    return this._fetchEvents();
+  }
+
   render() {
     if(this.state.isLoading){
       return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <ActivityIndicator size="large" />
+          <Text>Loading...</Text>
         </View>
       )
     }
 
     return (
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.isLoading}
+            onRefresh={this._fetchEvents}
+          />
+        }>
         <TitleView
           title="Future and past events"
           description="Shows can happen anytime anywhere! Keep our app installed to get notifications of new events."
