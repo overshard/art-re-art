@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { TouchableOpacity, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -26,13 +27,6 @@ const BottomTabNavigator = createBottomTabNavigator({
       tabBarIcon: ({tintColor}) => <Ionicons name="ios-calendar" size={25} color={tintColor} />,
     }
   },
-  Scanner: {
-    screen: ScannerScreen,
-    navigationOptions: {
-      tabBarLabel: 'Scanner',
-      tabBarIcon: ({tintColor}) => <Ionicons name="ios-barcode" size={25} color={tintColor} />,
-    }
-  },
   About: {
     screen: AboutScreen,
     navigationOptions: {
@@ -40,32 +34,54 @@ const BottomTabNavigator = createBottomTabNavigator({
       tabBarIcon: ({tintColor}) => <Ionicons name="ios-information-circle" size={25} color={tintColor} />,
     }
   },
-  Settings: {
-    screen: SettingsScreen,
-    navigationOptions: {
-      tabBarLabel: 'Settings',
-      tabBarIcon: ({tintColor}) => <Ionicons name="ios-options" size={25} color={tintColor} />,
-    }
-  },
 });
 
 
 const StackNavigator = createStackNavigator(
   {
-    App: {
+    Main: {
       screen: BottomTabNavigator,
-      navigationOptions: {
-        title: 'Art/Re/Art',
-        headerStyle: {
-          backgroundColor: 'black',
-        },
-        headerTitleStyle: {
-          color: 'white',
-        }
-      },
+      navigationOptions: ({navigation}) => ({
+        headerRight: (
+          <View
+            style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Scanner')}
+              style={{ marginRight: 20 }}>
+              <Ionicons name="ios-barcode" size={25} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Settings')}
+              style={{ marginRight: 20 }}>
+              <Ionicons name="ios-options" size={25} color="white" />
+            </TouchableOpacity>
+          </View>
+        ),
+      }),
+    },
+    Scanner: {
+      screen: ScannerScreen,
+    },
+    Settings: {
+      screen: SettingsScreen,
     },
   }, {
     headerLayoutPreset: 'center',
+    defaultNavigationOptions: {
+      title: 'Art/Re/Art',
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerBackTitleStyle: {
+        color: 'white',
+      },
+      headerBackImage: (
+        <Ionicons name="ios-arrow-back" size={25} color="white" />
+      ),
+    },
   },
 );
 
