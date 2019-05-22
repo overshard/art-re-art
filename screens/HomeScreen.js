@@ -1,11 +1,10 @@
-import React from 'react';
-import { Dimensions, StyleSheet, ScrollView, View, Image } from 'react-native';
+import React from "react";
+import { Dimensions, StyleSheet, ScrollView, View, Image } from "react-native";
 
-import Event from '../components/Event';
-import { TitleText } from '../components/Texts';
+import Event from "../components/Event";
+import { TitleText } from "../components/Texts";
 
-import EventsData from '../data/events.json';
-
+import EventsData from "../data/events.json";
 
 export default class HomeScreen extends React.Component {
   render() {
@@ -13,14 +12,12 @@ export default class HomeScreen extends React.Component {
       <ScrollView>
         <View style={styles.logoView}>
           <Image
-            source={require('../assets/images/art-re-art-logo.png')}
+            source={require("../assets/images/art-re-art-logo.png")}
             style={styles.logoImage}
           />
         </View>
         <View style={styles.nextEventView}>
-          <TitleText style={styles.nextEventTitle}>
-            Next Event
-          </TitleText>
+          <TitleText style={styles.nextEventTitle}>Next Event</TitleText>
           <Event {...EventsData.events[0]} />
         </View>
       </ScrollView>
@@ -28,25 +25,23 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-
 // Logo is currently the same width and height
-const logoDimensions = Dimensions.get('window').width - 25;
-
+const logoDimensions = Dimensions.get("window").width - 25;
 
 const styles = StyleSheet.create({
   logoView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 15
   },
   logoImage: {
     width: logoDimensions,
-    height: logoDimensions,
+    height: logoDimensions
   },
   nextEventView: {
-    margin: 15,
+    margin: 15
   },
   nextEventTitle: {
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });

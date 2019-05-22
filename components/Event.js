@@ -1,20 +1,28 @@
-import React from 'react';
-import { Modal, TouchableHighlight, Dimensions, StyleSheet, Text, View, Image, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
+import React from "react";
+import {
+  Modal,
+  TouchableHighlight,
+  Dimensions,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Alert
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default class Event extends React.Component {
   state = {
-    modalVisible: false,
+    modalVisible: false
   };
 
-  _setModalVisible = (visible) => {
-    this.setState({modalVisible: visible});
-  }
+  _setModalVisible = visible => {
+    this.setState({ modalVisible: visible });
+  };
 
   _onPress = () => {
     this._setModalVisible(true);
-  }
+  };
 
   render() {
     return (
@@ -25,15 +33,17 @@ export default class Event extends React.Component {
           visible={this.state.modalVisible}
           onRequestClose={() => {
             this._setModalVisible(!this.state.modalVisible);
-          }}>
-          <View style={{marginTop: 22}}>
+          }}
+        >
+          <View style={{ marginTop: 22 }}>
             <View>
               <Text>{this.props.title}</Text>
 
               <TouchableHighlight
                 onPress={() => {
                   this._setModalVisible(!this.state.modalVisible);
-                }}>
+                }}
+              >
                 <Text>Hide Modal</Text>
               </TouchableHighlight>
             </View>
@@ -45,26 +55,90 @@ export default class Event extends React.Component {
         >
           <View>
             <Image
-              source={require('../assets/images/placeholder.jpg')}
+              source={require("../assets/images/placeholder.jpg")}
               style={styles.eventImage}
             />
             <View style={styles.eventDescription}>
-              <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                <View style={{ alignItems: 'center', backgroundColor: '#ffffff', opacity: .7, borderRadius: 10, padding: 10 }}>
-                  <Text style={{ fontWeight: 'bold', letterSpacing: 3, fontSize: 16 }}>{this.props.dateDay}</Text>
-                  <Text style={{ letterSpacing: 2, textTransform: 'uppercase' }}>{this.props.dateMonth}</Text>
+              <View style={{ flexDirection: "row", marginBottom: 10 }}>
+                <View
+                  style={{
+                    alignItems: "center",
+                    backgroundColor: "#ffffff",
+                    opacity: 0.7,
+                    borderRadius: 10,
+                    padding: 10
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      letterSpacing: 3,
+                      fontSize: 16
+                    }}
+                  >
+                    {this.props.dateDay}
+                  </Text>
+                  <Text
+                    style={{ letterSpacing: 2, textTransform: "uppercase" }}
+                  >
+                    {this.props.dateMonth}
+                  </Text>
                 </View>
-                <View style={{ justifyContent: 'center' }}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, textTransform: 'uppercase', color: 'white', marginLeft: 15, letterSpacing: 1 }}>{this.props.title}</Text>
-                  <Text style={{ fontSize: 14, textTransform: 'uppercase', color: 'white', marginLeft: 15, letterSpacing: 1 }}>{this.props.dateTime}</Text>
+                <View style={{ justifyContent: "center" }}>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: 18,
+                      textTransform: "uppercase",
+                      color: "white",
+                      marginLeft: 15,
+                      letterSpacing: 1
+                    }}
+                  >
+                    {this.props.title}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                      color: "white",
+                      marginLeft: 15,
+                      letterSpacing: 1
+                    }}
+                  >
+                    {this.props.dateTime}
+                  </Text>
                 </View>
               </View>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Ionicons name="ios-car" size={25} style={{ color: '#ffffff', marginRight: 10 }} />
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Text style={{ color: '#ffffff', fontSize: 18, fontWeight: 'bold' }}>{this.props.locationName}</Text>
-                  <Text style={{ color: '#ffffff', fontSize: 22, marginLeft: 5, marginRight: 5 }}>|</Text>
-                  <Text style={{ color: '#ffffff', fontSize: 14 }}>{this.props.location}</Text>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Ionicons
+                  name="ios-car"
+                  size={25}
+                  style={{ color: "#ffffff", marginRight: 10 }}
+                />
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Text
+                    style={{
+                      color: "#ffffff",
+                      fontSize: 18,
+                      fontWeight: "bold"
+                    }}
+                  >
+                    {this.props.locationName}
+                  </Text>
+                  <Text
+                    style={{
+                      color: "#ffffff",
+                      fontSize: 22,
+                      marginLeft: 5,
+                      marginRight: 5
+                    }}
+                  >
+                    |
+                  </Text>
+                  <Text style={{ color: "#ffffff", fontSize: 14 }}>
+                    {this.props.location}
+                  </Text>
                 </View>
               </View>
             </View>
@@ -75,29 +149,28 @@ export default class Event extends React.Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   eventView: {
     marginBottom: 15,
-    shadowColor: '#000000',
+    shadowColor: "#000000",
     shadowRadius: 2,
     shadowOpacity: 1,
     shadowOffset: {
       width: 2,
-      height: 2,
+      height: 2
     },
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    borderRadius: 10
   },
   eventImage: {
-    resizeMode: 'cover',
-    width: Dimensions.get('window').width - 30,
+    resizeMode: "cover",
+    width: Dimensions.get("window").width - 30,
     height: 300,
-    borderRadius: 10,
+    borderRadius: 10
   },
   eventDescription: {
     padding: 25,
-    position: 'absolute',
-    bottom: 0,
-  },
+    position: "absolute",
+    bottom: 0
+  }
 });

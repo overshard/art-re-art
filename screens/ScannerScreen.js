@@ -1,19 +1,18 @@
-import React from 'react';
-import { View, StyleSheet, Button, Dimensions } from 'react-native';
-import { Permissions, BarCodeScanner } from 'expo';
+import React from "react";
+import { View, StyleSheet, Button, Dimensions } from "react-native";
+import { Permissions, BarCodeScanner } from "expo";
 
-import { TitleView } from '../components/Views';
-
+import { TitleView } from "../components/Views";
 
 export default class ScannerScreen extends React.Component {
   state = {
     hasCameraPermission: null,
-    scanned: false,
+    scanned: false
   };
 
   async componentDidMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({ hasCameraPermission: status === 'granted' });
+    this.setState({ hasCameraPermission: status === "granted" });
   }
 
   render() {
@@ -38,11 +37,22 @@ export default class ScannerScreen extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
-        }}>
-
-        <View style={{ flex: 1, backgroundColor: '#ffffff', position: 'absolute', zIndex: 2, width: Dimensions.get('window').width }}>
-          <TitleView title="Scanner" description="See a QR code? Give it a scan..." />
+          flex: 1
+        }}
+      >
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "#ffffff",
+            position: "absolute",
+            zIndex: 2,
+            width: Dimensions.get("window").width
+          }}
+        >
+          <TitleView
+            title="Scanner"
+            description="See a QR code? Give it a scan..."
+          />
         </View>
 
         <BarCodeScanner
@@ -52,7 +62,7 @@ export default class ScannerScreen extends React.Component {
 
         {scanned && (
           <Button
-            title={'Tap to Scan Again'}
+            title={"Tap to Scan Again"}
             onPress={() => this.setState({ scanned: false })}
           />
         )}
