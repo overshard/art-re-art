@@ -1,16 +1,13 @@
 {
     "artists": [
         {
-            "key": "1",
-            "Name": "Nancy VanNoppen"
+            "name": "Nancy VanNoppen"
         },
         {
-            "key": "2",
-            "Name": "Jean VanNoppen"
+            "name": "Jean VanNoppen"
         },
         {
-            "key": "3",
-            "Name": "Allen VanNoppen"
+            "name": "Allen VanNoppen"
         }
     ]
 }

@@ -9,6 +9,7 @@ import EventsScreen from '../screens/EventsScreen';
 import ScannerScreen from '../screens/ScannerScreen';
 import AboutScreen from '../screens/AboutScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import ArtistsScreen from '../screens/ArtistsScreen';
 
 
 const BottomTabNavigator = createBottomTabNavigator({
@@ -25,6 +26,13 @@ const BottomTabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Events',
       tabBarIcon: ({tintColor}) => <Ionicons name="ios-calendar" size={25} color={tintColor} />,
+    }
+  },
+  Artists: {
+    screen: ArtistsScreen,
+    navigationOptions: {
+      tabBarLabel: 'Artists',
+      tabBarIcon: ({tintColor}) => <Ionicons name="ios-color-palette" size={25} color={tintColor} />,
     }
   },
   About: {
