@@ -7,10 +7,10 @@ import {
   Text,
   RefreshControl
 } from "react-native";
-import moment from "moment";
 
 import Event from "../components/Event";
 import { TitleView } from "../components/Views";
+import fetchEvents from "../utilities/fetchEvents";
 
 export default class EventsScreen extends React.Component {
   state = {
@@ -20,47 +20,18 @@ export default class EventsScreen extends React.Component {
 
   _keyExtractor = (item, index) => item.url;
 
-  _fetchEvents = () => {
+  _fetchEvents = async () => {
     this.setState({
       isLoading: true,
       dataSource: null
     });
-    let eventsFetch = fetch("http://art-re-art.herokuapp.com/api/events/")
-      .then(res => {
-        return res.json();
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    let eventLocationsFetch = fetch(
-      "http://art-re-art.herokuapp.com/api/eventlocations/"
-    )
-      .then(res => {
-        return res.json();
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    return Promise.all([eventsFetch, eventLocationsFetch])
-      .then(([eventsResponse, eventLocationsResponse]) => {
-        let events = eventsResponse.map(event => {
-          let datetime = moment(event.datetime);
-          event.dateDay = datetime.format("DD");
-          event.dateMonth = datetime.format("MMM");
-          event.dateTime = datetime.format("h:mm A");
-          event.location = eventLocationsResponse.find(location => {
-            return event.location === location.url;
-          });
-          return event;
-        });
-        this.setState({
-          isLoading: false,
-          dataSource: events
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      });
+
+    let events = await fetchEvents();
+
+    this.setState({
+      isLoading: false,
+      dataSource: events
+    });
   };
 
   componentDidMount() {
@@ -103,6 +74,7 @@ export default class EventsScreen extends React.Component {
               dateTime={item.dateTime}
               locationName={item.location.title}
               location={item.location.street}
+              event={item}
             />
           )}
           data={this.state.dataSource}

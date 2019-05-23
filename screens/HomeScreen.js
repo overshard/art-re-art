@@ -7,59 +7,29 @@ import {
   ActivityIndicator,
   Text
 } from "react-native";
-import moment from "moment";
 
 import Event from "../components/Event";
 import { TitleText } from "../components/Texts";
+import fetchEvents from "../utilities/fetchEvents";
 
 export default class HomeScreen extends React.Component {
   state = {
     isLoading: true,
-    dataSource: null
+    events: null
   };
 
-  _fetchEvents = () => {
+  _fetchEvents = async () => {
     this.setState({
       isLoading: true,
-      dataSource: null
+      events: null
     });
-    let eventsFetch = fetch("http://art-re-art.herokuapp.com/api/events/")
-      .then(res => {
-        return res.json();
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    let eventLocationsFetch = fetch(
-      "http://art-re-art.herokuapp.com/api/eventlocations/"
-    )
-      .then(res => {
-        return res.json();
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    return Promise.all([eventsFetch, eventLocationsFetch])
-      .then(([eventsResponse, eventLocationsResponse]) => {
-        let events = eventsResponse.map(event => {
-          let datetime = moment(event.datetime);
-          event.dateDay = datetime.format("DD");
-          event.dateMonth = datetime.format("MMM");
-          event.dateTime = datetime.format("h:mm A");
-          event.location = eventLocationsResponse.find(location => {
-            return event.location === location.url;
-          });
-          return event;
-        });
-        console.log()
-        this.setState({
-          isLoading: false,
-          dataSource: events
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      });
+
+    let events = await fetchEvents();
+
+    this.setState({
+      isLoading: false,
+      events: events
+    });
   };
 
   componentDidMount() {
@@ -108,12 +78,13 @@ export default class HomeScreen extends React.Component {
             Next Event
           </TitleText>
           <Event
-            title={this.state.dataSource[0].title}
-            dateDay={this.state.dataSource[0].dateDay}
-            dateMonth={this.state.dataSource[0].dateMonth}
-            dateTime={this.state.dataSource[0].dateTime}
-            locationName={this.state.dataSource[0].location.title}
-            location={this.state.dataSource[0].location.street}
+            title={this.state.events[0].title}
+            dateDay={this.state.events[0].dateDay}
+            dateMonth={this.state.events[0].dateMonth}
+            dateTime={this.state.events[0].dateTime}
+            locationName={this.state.events[0].location.title}
+            location={this.state.events[0].location.street}
+            event={this.state.events[0]}
           />
         </View>
       </ScrollView>

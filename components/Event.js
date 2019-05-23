@@ -1,55 +1,36 @@
 import React from "react";
 import {
-  Modal,
   TouchableHighlight,
   Dimensions,
   Text,
   View,
-  Image,
-  Alert
+  Image
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
+import EventModal from "./EventModal";
 
 export default class Event extends React.Component {
   state = {
     modalVisible: false
   };
 
-  _setModalVisible = visible => {
-    this.setState({ modalVisible: visible });
-  };
-
-  _onPress = () => {
-    this._setModalVisible(true);
+  _modalVisible = () => {
+    this.setState({
+      modalVisible: !this.state.modalVisible
+    });
   };
 
   render() {
     return (
       <View>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            this._setModalVisible(!this.state.modalVisible);
-          }}
-        >
-          <View style={{ marginTop: 22 }}>
-            <View>
-              <Text>{this.props.title}</Text>
-
-              <TouchableHighlight
-                onPress={() => {
-                  this._setModalVisible(!this.state.modalVisible);
-                }}
-              >
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        </Modal>
+        <EventModal
+          modalVisible={this.state.modalVisible}
+          _modalVisible={this._modalVisible}
+          event={this.props.event}
+        />
         <TouchableHighlight
-          onPress={() => this._onPress()}
+          onPress={() => this._modalVisible()}
           style={{
             marginBottom: 15,
             shadowColor: "#000000",
