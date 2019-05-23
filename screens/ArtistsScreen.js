@@ -2,6 +2,7 @@ import React from "react";
 import { ScrollView, FlatList, Text, View } from "react-native";
 
 import { TitleView } from "../components/Views";
+import Artist from "../components/Artist";
 import ArtistsData from "../data/artists.json";
 
 export default class AboutScreen extends React.Component {
@@ -18,9 +19,12 @@ export default class AboutScreen extends React.Component {
           style={{ margin: 15 }}
           keyExtractor={this._keyExtractor}
           renderItem={({ item }) => (
-            <View>
-              <Text>Artist Name: {item.name}</Text>
-            </View>
+            <Artist
+              name={item.name}
+              instagram={item.instagram}
+              website={item.website}
+              medium={item.medium}
+            />
           )}
           data={ArtistsData.artists}
         />
