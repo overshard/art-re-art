@@ -50,7 +50,7 @@ export default class Event extends React.Component {
               style={{
                 resizeMode: "cover",
                 width: Dimensions.get("window").width - 30,
-                height: 300,
+                height: 200,
                 borderRadius: 10
               }}
             />
