@@ -54,14 +54,15 @@ export default class HomeScreen extends React.Component {
           style={{
             justifyContent: "center",
             alignItems: "center",
-            margin: 15
+            margin: 15,
+            marginTop: 30
           }}
         >
           <Image
             source={require("../assets/images/art-re-art-logo.png")}
             style={{
-              width: Dimensions.get("window").width - 25,
-              height: Dimensions.get("window").width - 25
+              width: Dimensions.get("window").width - 100,
+              height: Dimensions.get("window").width - 100
             }}
           />
         </View>
@@ -70,13 +71,20 @@ export default class HomeScreen extends React.Component {
             margin: 15
           }}
         >
-          <TitleText
+          <Text
             style={{
-              marginBottom: 5
+              position: "absolute",
+              color: "white",
+              fontSize: 23,
+              fontWeight: "bold",
+              opacity: 0.3,
+              top: 10,
+              right: 15,
+              zIndex: 2
             }}
           >
             Next Event
-          </TitleText>
+          </Text>
           <Event
             title={this.state.events[0].title}
             dateDay={this.state.events[0].dateDay}

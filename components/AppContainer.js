@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, Image } from "react-native";
 import {
   createBottomTabNavigator,
   createAppContainer,
@@ -88,12 +88,18 @@ const StackNavigator = createStackNavigator(
   {
     headerLayoutPreset: "center",
     defaultNavigationOptions: {
-      title: "Art/Re/Art",
+      headerTitle: (
+        <Image
+          source={require("../assets/images/art-re-art-logo.png")}
+          style={{
+            width: 100,
+            height: 100,
+            position: "absolute"
+          }}
+        />
+      ),
       headerStyle: {
         backgroundColor: "black"
-      },
-      headerTitleStyle: {
-        color: "white"
       },
       headerBackTitleStyle: {
         color: "white"

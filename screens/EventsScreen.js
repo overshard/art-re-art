@@ -60,7 +60,7 @@ export default class EventsScreen extends React.Component {
         }
       >
         <TitleView
-          title="Future and past events"
+          title="Events"
           description="Shows can happen anytime anywhere! Keep our app installed to get notifications of new events."
         />
         <FlatList
