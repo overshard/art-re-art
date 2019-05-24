@@ -33,13 +33,6 @@ export default class Event extends React.Component {
           onPress={() => this._modalVisible()}
           style={{
             marginBottom: 15,
-            shadowColor: "#000000",
-            shadowRadius: 2,
-            shadowOpacity: 1,
-            shadowOffset: {
-              width: 2,
-              height: 2
-            },
             backgroundColor: "#ffffff",
             borderRadius: 10
           }}
