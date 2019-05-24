@@ -18,8 +18,9 @@ export default class AboutScreen extends React.Component {
         <FlatList
           style={{ margin: 15 }}
           keyExtractor={this._keyExtractor}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <Artist
+              index={index}
               name={item.name}
               instagram={item.instagram}
               website={item.website}
