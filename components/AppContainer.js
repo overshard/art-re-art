@@ -14,6 +14,7 @@ import ScannerScreen from "../screens/ScannerScreen";
 import AboutScreen from "../screens/AboutScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import ArtistsScreen from "../screens/ArtistsScreen";
+import FAQScreen from "../screens/FAQScreen";
 
 const BottomTabNavigator = createBottomTabNavigator({
   Home: {
@@ -76,10 +77,10 @@ const StackNavigator = createStackNavigator(
               <AntDesign name="qrcode" size={25} color="white" />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Settings")}
+              onPress={() => navigation.navigate("FAQ")}
               style={{ marginRight: 20 }}
             >
-              <AntDesign name="Trophy" size={25} color="white" />
+              <AntDesign name="questioncircleo" size={25} color="white" />
             </TouchableOpacity>
           </View>
         )
@@ -88,8 +89,8 @@ const StackNavigator = createStackNavigator(
     Scanner: {
       screen: ScannerScreen
     },
-    Settings: {
-      screen: SettingsScreen
+    FAQ: {
+      screen: FAQScreen
     }
   },
   {
