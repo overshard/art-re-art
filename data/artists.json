@@ -4,25 +4,52 @@
       "name": "Nancy VanNoppen",
       "instagram": "https://www.instagram.com/nancyvannoppen/",
       "website": "https://www.nancyvannoppen.com/",
-      "medium": "Installation"
+      "medium": [
+        "Installation",
+        "Painting",
+        "Interactive"
+      ],
+      "shows": "First"
     },
     {
       "name": "MaxFlex",
       "instagram": "https://www.instagram.com/max.flex.5855/",
       "website": "https://www.maxflex.me/",
-      "medium": "Installation"
+      "medium": [
+        "Installation",
+        "Painting",
+        "Drawing",
+        "Video"
+      ],
+      "shows": "First"
     },
     {
       "name": "Jean VanNoppen Sr.",
       "instagram": null,
       "website": null,
-      "medium": "Interactive"
+      "medium": [
+        "Interactive"
+      ],
+      "shows": "First"
     },
     {
       "name": "Jean VanNoppen Jr.",
       "instagram": null,
       "website": null,
-      "medium": "Interactive"
+      "medium": [
+        "Interactive"
+      ],
+      "shows": "First"
+    },
+    {
+      "name": "David Shurbutt",
+      "instagram": null,
+      "website": "https://www.davidshurbuttartworker.com/",
+      "medium": [
+        "Performance",
+        "Installation"
+      ],
+      "shows": "First"
     }
   ]
 }

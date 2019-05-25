@@ -46,7 +46,7 @@ export default class Artist extends React.Component {
             {this.props.name}
           </Text>
           {this.props.medium ? (
-            <Text style={{ color: "white" }}>{this.props.medium}</Text>
+            <Text style={{ color: "white" }}>{this.props.medium.join(', ')}</Text>
           ) : null}
         </View>
         <View
