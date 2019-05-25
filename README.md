@@ -58,3 +58,11 @@ atleast once to make sure it's fully installed.
   -participating artists - click to see list
   -participate in scavenger hunt
   -photo gallery
+
+## Scavenger Hunt
+
+-list of tasks to be copleted or found
+  -modal pops up when you click on one with an input field to type in an answer OR upload a photo
+  -if correct return to list view but that item is now checked off
+  -if incorrect gives error message
+-on last item being checked modal pops up with message and image of my face saying go show your screen to this person
