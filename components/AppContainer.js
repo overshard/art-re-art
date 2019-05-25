@@ -6,7 +6,7 @@ import {
   createAppContainer,
   createStackNavigator
 } from "react-navigation";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
 import EventsScreen from "../screens/EventsScreen";
@@ -22,7 +22,7 @@ const BottomTabNavigator = createBottomTabNavigator({
       title: "Home",
       tabBarLabel: "Home",
       tabBarIcon: ({ tintColor }) => (
-        <Ionicons name="ios-home" size={25} color={tintColor} />
+        <AntDesign name="home" size={25} color={tintColor} />
       )
     }
   },
@@ -31,7 +31,7 @@ const BottomTabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: "Events",
       tabBarIcon: ({ tintColor }) => (
-        <Ionicons name="ios-calendar" size={25} color={tintColor} />
+        <AntDesign name="calendar" size={25} color={tintColor} />
       )
     }
   },
@@ -40,7 +40,7 @@ const BottomTabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: "Artists",
       tabBarIcon: ({ tintColor }) => (
-        <Ionicons name="ios-color-palette" size={25} color={tintColor} />
+        <AntDesign name="team" size={25} color={tintColor} />
       )
     }
   },
@@ -49,11 +49,18 @@ const BottomTabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: "About",
       tabBarIcon: ({ tintColor }) => (
-        <Ionicons name="ios-information-circle" size={25} color={tintColor} />
+        <AntDesign name="infocirlceo" size={25} color={tintColor} />
       )
     }
   }
-});
+},
+{tabBarOptions: {
+  style: {
+    backgroundColor: 'black',
+  },
+  activeTintColor: 'red',
+  inactiveTintColor: 'white',
+}});
 
 const StackNavigator = createStackNavigator(
   {
@@ -66,13 +73,13 @@ const StackNavigator = createStackNavigator(
               onPress={() => navigation.navigate("Scanner")}
               style={{ marginRight: 20 }}
             >
-              <Ionicons name="ios-barcode" size={25} color="white" />
+              <AntDesign name="qrcode" size={25} color="white" />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("Settings")}
               style={{ marginRight: 20 }}
             >
-              <Ionicons name="ios-options" size={25} color="white" />
+              <AntDesign name="bars" size={25} color="white" />
             </TouchableOpacity>
           </View>
         )
@@ -105,7 +112,7 @@ const StackNavigator = createStackNavigator(
         color: "white"
       },
       headerBackImage: (
-        <Ionicons name="ios-arrow-back" size={25} color="white" />
+        <AntDesign name="left" size={25} color="white" />
       )
     }
   }
