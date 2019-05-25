@@ -13,9 +13,18 @@ export default class AboutScreen extends React.Component {
           description="Behind the scenes of Art/Re/Art."
         />
         <View style={{ margin: 15 }}>
-          <Text>Website: {AboutData.website}</Text>
-          <Text>Developers: {AboutData.developers}</Text>
-          <Text>Description: {AboutData.description}</Text>
+          <View style={{ flexDirection: "row", marginBottom: 10 }}>
+            <Text style={{ flex: 1 }}>Website:</Text>
+            <Text style={{ flex: 3, fontFamily: "font2" }}>{AboutData.website}</Text>
+          </View>
+          <View style={{ flexDirection: "row", marginBottom: 10 }}>
+            <Text style={{ flex: 1 }}>Dvelopers:</Text>
+            <Text style={{ flex: 3, fontFamily: "font2" }}>{AboutData.developers}</Text>
+          </View>
+          <View style={{ flexDirection: "row", marginBottom: 10 }}>
+            <Text style={{ flex: 1 }}>Description:</Text>
+            <Text style={{ flex: 3, fontFamily: "font2" }}>{AboutData.description}</Text>
+          </View>
         </View>
       </ScrollView>
     );
