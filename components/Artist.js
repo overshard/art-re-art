@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Button, TouchableOpacity } from "react-native";
 import { WebBrowser, LinearGradient } from "expo";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 export default class Artist extends React.Component {
   _openInstagram = () => {
@@ -62,7 +62,7 @@ export default class Artist extends React.Component {
               onPress={() => this._openInstagram()}
               style={{ marginRight: 20 }}
             >
-              <Ionicons name="logo-instagram" size={25} color="white" />
+              <AntDesign name="instagram" size={25} color="white" />
             </TouchableOpacity>
           ) : null}
           {this.props.website ? (
@@ -70,7 +70,7 @@ export default class Artist extends React.Component {
               onPress={() => this._openWebsite()}
               style={{ marginRight: 20 }}
             >
-              <Ionicons name="ios-browsers" size={25} color="white" />
+              <AntDesign name="export" size={25} color="white" />
             </TouchableOpacity>
           ) : null}
         </View>
