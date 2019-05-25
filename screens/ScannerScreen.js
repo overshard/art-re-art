@@ -45,7 +45,7 @@ export default class ScannerScreen extends React.Component {
             flex: 1,
             backgroundColor: "#ffffff",
             position: "absolute",
-            zIndex: 2,
+            zIndex: 3,
             width: Dimensions.get("window").width
           }}
         >
@@ -57,15 +57,14 @@ export default class ScannerScreen extends React.Component {
 
         <View>
         <Image
-          source={require("../assets/images/square.png")}
-          style={{
-            position: 'absolute',
-            zIndex: 2,
-            left: (Dimensions.get("window").width / 2) - 100,
-            top: Dimensions.get("window").height / 2 - 150,
-            width: 200,
-            height: 200,
-          }}
+          source={require("../assets/images/scan-overlay.png")}
+          style={[
+            StyleSheet.absoluteFillObject,
+            {
+              zIndex: 2,
+              position: 'absolute',
+            }
+          ]}
         />
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
