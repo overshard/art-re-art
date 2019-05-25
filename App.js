@@ -43,9 +43,9 @@ export default class App extends React.Component {
   render() {
     if (this.state.appIsReady) {
       return (
-        <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <AppContainer />
-        </SafeAreaView>
+        </View>
       );
     } else {
       return <AppLoading />
