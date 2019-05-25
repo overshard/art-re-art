@@ -8,7 +8,7 @@ export class TitleText extends React.Component {
         {...this.props}
         style={[
           this.props.style,
-          { fontSize: 24, fontWeight: "bold", fontFamily: "special-elite" }
+          { fontSize: 24, fontWeight: "bold", fontFamily: "font2" }
         ]}
       />
     );

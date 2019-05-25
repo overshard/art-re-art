@@ -25,7 +25,7 @@ export default class App extends React.Component {
         ],
         fonts: [
           {
-            'special-elite': require('./assets/fonts/SpecialElite.ttf'),
+            'font2': require('./assets/fonts/Inconsolata.otf'),
           },
         ],
       });
