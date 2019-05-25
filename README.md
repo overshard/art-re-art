@@ -38,3 +38,23 @@ atleast once to make sure it's fully installed.
 ## Running emulator on Windows
 
     emulator.exe -avd Pixel_3_API_28 -dns-server 8.8.8.8 &
+
+## Events
+
+-event list
+  -event block with date, time, location, title
+-event pages
+  -artists participating
+  -schedule if there is one (performances? maybe hold off on this until we have more info)
+  -features (i.e. scavenger hunt to win tshirt, etc.)
+  -share - (email or text calendar, add to iOS calendar, add to Google Calendar)
+  -get notified (day of event send notification)
+
+## Home
+
+-during "off-season" just have info about next upcomnig event with share/notification options
+-day of event have all the ways to explore or participate in event in block format
+  -see artwork
+  -participating artists - click to see list
+  -participate in scavenger hunt
+  -photo gallery
