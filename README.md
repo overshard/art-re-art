@@ -66,3 +66,7 @@ atleast once to make sure it's fully installed.
   -if correct return to list view but that item is now checked off
   -if incorrect gives error message
 -on last item being checked modal pops up with message and image of my face saying go show your screen to this person
+
+## FAQ
+
+-icon in top right when not trophy for scavenger hunt during event (other FAQ is linked on About page)
