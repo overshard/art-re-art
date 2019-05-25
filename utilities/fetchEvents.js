@@ -3,7 +3,7 @@ import moment from "moment";
 
 export default async function fetchEvents() {
   _fetchData = async () => {
-    let eventsFetch = fetch("http://art-re-art.herokuapp.com/api/events/")
+    let eventsFetch = fetch("http://artreart.com/api/events/")
       .then(res => {
         return res.json();
       })
@@ -12,7 +12,7 @@ export default async function fetchEvents() {
       });
 
     let eventLocationsFetch = fetch(
-      "http://art-re-art.herokuapp.com/api/eventlocations/"
+      "http://artreart.com/api/eventlocations/"
     )
       .then(res => {
         return res.json();
