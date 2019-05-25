@@ -79,7 +79,7 @@ const StackNavigator = createStackNavigator(
               onPress={() => navigation.navigate("Settings")}
               style={{ marginRight: 20 }}
             >
-              <AntDesign name="bars" size={25} color="white" />
+              <AntDesign name="Trophy" size={25} color="white" />
             </TouchableOpacity>
           </View>
         )
