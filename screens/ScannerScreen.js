@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Button, Dimensions } from "react-native";
+import { StyleSheet, View, Button, Dimensions, Image } from "react-native";
 import { Permissions, BarCodeScanner } from "expo";
 
 import { TitleView } from "../components/Views";
@@ -55,10 +55,23 @@ export default class ScannerScreen extends React.Component {
           />
         </View>
 
+        <View>
+        <Image
+          source={require("../assets/images/square.png")}
+          style={{
+            position: 'absolute',
+            zIndex: 2,
+            left: (Dimensions.get("window").width / 2) - 100,
+            top: Dimensions.get("window").height / 2 - 150,
+            width: 200,
+            height: 200,
+          }}
+        />
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
           style={StyleSheet.absoluteFillObject}
         />
+        </View>
 
         {scanned && (
           <Button
