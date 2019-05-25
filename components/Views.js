@@ -9,7 +9,7 @@ export class TitleView extends React.Component {
       <View style={{ margin: 15 }}>
         <TitleText style={{ marginBottom: 5 }}>{this.props.title}</TitleText>
         {this.props.description ? (
-          <Text style={{ color: "#555555" }}>{this.props.description}</Text>
+          <Text style={{ color: "#555555", fontFamily: "font2" }}>{this.props.description}</Text>
         ) : null}
       </View>
     );
