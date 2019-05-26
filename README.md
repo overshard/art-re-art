@@ -43,6 +43,7 @@ atleast once to make sure it's fully installed.
 
 -event list
   -event block with date, time, location, title
+  -separated by upcoming and past events
 -event pages
   -artists participating
   -schedule if there is one (performances? maybe hold off on this until we have more info)
