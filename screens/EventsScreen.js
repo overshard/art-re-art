@@ -11,28 +11,33 @@ import {
 
 import Event from "../components/Event";
 import { TitleView } from "../components/Views";
-import fetchEvents from "../utilities/fetchEvents";
 
 export default class EventsScreen extends React.Component {
   state = {
     isLoading: true,
-    dataSource: null
+    events: null
   };
 
   _keyExtractor = (item, index) => item.url;
 
-  _fetchEvents = async () => {
+  _fetchEvents = () => {
     this.setState({
       isLoading: true,
-      dataSource: null
+      events: null
     });
-
-    let events = await fetchEvents();
-
-    this.setState({
-      isLoading: false,
-      dataSource: events
-    });
+    return fetch("http://artreart.com/api/events/")
+      .then(res => {
+        return res.json();
+      })
+      .then(resJson => {
+        this.setState({
+          isLoading: false,
+          events: resJson
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   componentDidMount() {
@@ -70,17 +75,11 @@ export default class EventsScreen extends React.Component {
             keyExtractor={this._keyExtractor}
             renderItem={({ item }) => (
               <Event
-                title={item.title}
-                dateDay={item.dateDay}
-                dateMonth={item.dateMonth}
-                dateTime={item.dateTime}
-                locationName={item.location.title}
-                location={item.location.street}
-                event={item}
+                {...item}
                 navigation={this.props.navigation}
               />
             )}
-            data={this.state.dataSource}
+            data={this.state.events}
           />
         </ScrollView>
       </ImageBackground>

@@ -10,8 +10,6 @@ import {
 } from "react-native";
 
 import Event from "../components/Event";
-import { TitleText } from "../components/Texts";
-import fetchEvents from "../utilities/fetchEvents";
 
 import { FadeInView } from "../components/Views";
 
@@ -21,18 +19,24 @@ export default class HomeScreen extends React.Component {
     events: null
   };
 
-  _fetchEvents = async () => {
+  _fetchEvents = () => {
     this.setState({
       isLoading: true,
       events: null
     });
-
-    let events = await fetchEvents();
-
-    this.setState({
-      isLoading: false,
-      events: events
-    });
+    return fetch("http://artreart.com/api/events/")
+      .then(res => {
+        return res.json();
+      })
+      .then(resJson => {
+        this.setState({
+          isLoading: false,
+          events: resJson
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   componentDidMount() {
@@ -98,13 +102,7 @@ export default class HomeScreen extends React.Component {
               Next Event
             </Text>
             <Event
-              title={this.state.events[0].title}
-              dateDay={this.state.events[0].dateDay}
-              dateMonth={this.state.events[0].dateMonth}
-              dateTime={this.state.events[0].dateTime}
-              locationName={this.state.events[0].location.title}
-              location={this.state.events[0].location.street}
-              event={this.state.events[0]}
+              {...this.state.events[0]}
               navigation={this.props.navigation}
             />
           </View>

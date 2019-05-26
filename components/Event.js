@@ -10,7 +10,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 export default class Event extends React.Component {
   _showEvent = () => {
-    this.props.navigation.navigate("Event", { url: this.props.event.url });
+    this.props.navigation.navigate("Event", { url: this.props.url });
   };
 
   render() {
@@ -64,7 +64,7 @@ export default class Event extends React.Component {
                       fontSize: 16
                     }}
                   >
-                    {this.props.dateDay}
+                    {this.props.day}
                   </Text>
                   <Text
                     style={{
@@ -73,7 +73,7 @@ export default class Event extends React.Component {
                       fontFamily: "font2"
                     }}
                   >
-                    {this.props.dateMonth}
+                    {this.props.month}
                   </Text>
                 </View>
                 <View style={{ justifyContent: "center" }}>
@@ -99,7 +99,7 @@ export default class Event extends React.Component {
                       fontFamily: "font2"
                     }}
                   >
-                    {this.props.dateTime}
+                    {this.props.time}
                   </Text>
                 </View>
               </View>
@@ -124,7 +124,7 @@ export default class Event extends React.Component {
                       fontFamily: "font2"
                     }}
                   >
-                    {this.props.locationName}
+                    {this.props.location.title}
                   </Text>
                   <Text
                     style={{
@@ -144,7 +144,7 @@ export default class Event extends React.Component {
                       fontFamily: "font2"
                     }}
                   >
-                    {this.props.location}
+                    {this.props.location.street}
                   </Text>
                 </View>
               </View>
