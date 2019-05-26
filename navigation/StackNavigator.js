@@ -5,7 +5,7 @@ import { createStackNavigator } from "react-navigation";
 import { AntDesign } from "@expo/vector-icons";
 
 import ScannerScreen from "../screens/ScannerScreen";
-import FAQScreen from "../screens/FAQScreen";
+import AboutScreen from "../screens/AboutScreen";
 
 import BottomTabNavigator from "./BottomTabNavigator";
 
@@ -22,7 +22,7 @@ const StackNavigatorRouteConfigs = {
             <AntDesign name="qrcode" size={25} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate("FAQ")}
+            onPress={() => navigation.navigate("About")}
             style={{ marginRight: 20 }}
           >
             <AntDesign name="questioncircleo" size={25} color="white" />
@@ -34,8 +34,8 @@ const StackNavigatorRouteConfigs = {
   Scanner: {
     screen: ScannerScreen
   },
-  FAQ: {
-    screen: FAQScreen
+  About: {
+    screen: AboutScreen
   }
 };
 
@@ -62,7 +62,7 @@ const StackNavigatorConfig = {
   }
 };
 
-export default StackNavigator = createStackNavigator(
+export default (StackNavigator = createStackNavigator(
   StackNavigatorRouteConfigs,
   StackNavigatorConfig
-);
+));

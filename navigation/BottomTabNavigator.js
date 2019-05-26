@@ -5,7 +5,6 @@ import { AntDesign } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
 import EventsScreen from "../screens/EventsScreen";
-import AboutScreen from "../screens/AboutScreen";
 import ArtistsScreen from "../screens/ArtistsScreen";
 
 const BottomTabNavigatorRouteConfigs = {
@@ -34,15 +33,6 @@ const BottomTabNavigatorRouteConfigs = {
       tabBarLabel: "Artists",
       tabBarIcon: ({ tintColor }) => (
         <AntDesign name="team" size={25} color={tintColor} />
-      )
-    }
-  },
-  About: {
-    screen: AboutScreen,
-    navigationOptions: {
-      tabBarLabel: "About",
-      tabBarIcon: ({ tintColor }) => (
-        <AntDesign name="infocirlceo" size={25} color={tintColor} />
       )
     }
   }
