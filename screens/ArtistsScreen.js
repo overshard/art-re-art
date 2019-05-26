@@ -11,7 +11,6 @@ import {
 
 import { TitleView } from "../components/Views";
 import Artist from "../components/Artist";
-import fetchArtists from "../utilities/fetchArtists";
 
 export default class ArtistsScreen extends React.Component {
   state = {

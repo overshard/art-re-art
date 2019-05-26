@@ -4,16 +4,21 @@ import {
   View,
   Text,
   ImageBackground,
-  ActivityIndicator
+  ActivityIndicator,
+  FlatList
 } from "react-native";
 import { MapView } from "expo";
 
 import { TitleView } from "../components/Views";
+import Artist from "../components/Artist";
+
 export default class EventScreen extends React.Component {
   state = {
     isLoading: true,
     event: null
   };
+
+  _keyExtractor = (item, index) => item.url;
 
   _fetchEvent = () => {
     return (eventFetch = fetch(this.props.navigation.getParam("url"))
@@ -51,26 +56,37 @@ export default class EventScreen extends React.Component {
         style={{ width: "100%", height: "100%" }}
       >
         <ScrollView>
-          {/* <MapView
+          <MapView
             style={{ minHeight: 250 }}
             initialRegion={{
-              latitude: this.props.event.location.latitude,
-              longitude: this.props.event.location.longitude,
+              latitude: this.state.event.location.latitude,
+              longitude: this.state.event.location.longitude,
               latitudeDelta: 0.03,
               longitudeDelta: 0.01
             }}
           >
             <MapView.Marker
-              title={this.props.event.location.title}
-              description={this.props.event.location.street}
+              title={this.state.event.location.title}
+              description={this.state.event.location.street}
               coordinate={{
-                latitude: this.props.event.location.latitude,
-                longitude: this.props.event.location.longitude
+                latitude: this.state.event.location.latitude,
+                longitude: this.state.event.location.longitude
               }}
             />
-          </MapView> */}
+          </MapView>
           <View>
             <TitleView title={this.state.event.title} />
+          </View>
+          <View>
+            <TitleView title="Artists" />
+            <FlatList
+              style={{ margin: 15 }}
+              keyExtractor={this._keyExtractor}
+              renderItem={({ item, index }) => (
+                <Artist {...item} index={index} />
+              )}
+              data={this.state.event.artists}
+            />
           </View>
         </ScrollView>
       </ImageBackground>
