@@ -70,3 +70,4 @@ atleast once to make sure it's fully installed.
 ## FAQ
 
 -icon in top right when not trophy for scavenger hunt during event (other FAQ is linked on About page)
+-add link/button at end to contact
