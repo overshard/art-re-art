@@ -11,6 +11,7 @@ import { MapView } from "expo";
 
 import { TitleView } from "../components/Views";
 import Artist from "../components/Artist";
+import Event from "../components/Event";
 
 export default class EventScreen extends React.Component {
   state = {
@@ -74,8 +75,9 @@ export default class EventScreen extends React.Component {
               }}
             />
           </MapView>
-          <View>
-            <TitleView title={this.state.event.title} />
+          <TitleView title="Event" />
+          <View style={{ margin: 15, marginTop: 0 }}>
+            <Event {...this.state.event} navigation={this.props.navigation} />
           </View>
           <View>
             <TitleView title="Artists" />
