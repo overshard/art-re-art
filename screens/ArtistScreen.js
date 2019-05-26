@@ -5,9 +5,10 @@ import {
   Text,
   ImageBackground,
   ActivityIndicator,
-  FlatList
+  FlatList,
+  Button
 } from "react-native";
-import { MapView } from "expo";
+import { MapView, WebBrowser } from "expo";
 
 import { TitleView } from "../components/Views";
 
@@ -31,6 +32,22 @@ export default class ArtistScreen extends React.Component {
       .catch(err => {
         console.error(err);
       }));
+  };
+
+  _openInstagram = () => {
+    return WebBrowser.openBrowserAsync(this.state.artist.instagram);
+  };
+
+  _openWebsite = () => {
+    return WebBrowser.openBrowserAsync(this.state.artist.website);
+  };
+
+  _medium = () => {
+    return this.state.artist.medium
+      .map(medium => {
+        return medium.title;
+      })
+      .join(", ");
   };
 
   componentDidMount() {
@@ -57,7 +74,10 @@ export default class ArtistScreen extends React.Component {
         <ScrollView>
           <TitleView title="Artist" />
           <View style={{ margin: 15, marginTop: 0 }}>
-            <Text>{this.state.artist.name}</Text>
+            <Text>Name: {this.state.artist.name}</Text>
+            <Button title="Website" onPress={this._openWebsite} />
+            <Button title="Instagram" onPress={this._openInstagram} />
+            <Text>Medium: {this._medium()}</Text>
           </View>
         </ScrollView>
       </ImageBackground>
