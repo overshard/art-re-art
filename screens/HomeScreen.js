@@ -6,18 +6,21 @@ import {
   Image,
   ActivityIndicator,
   Text,
-  ImageBackground
+  ImageBackground,
+  FlatList
 } from "react-native";
 
 import Event from "../components/Event";
-
-import { FadeInView } from "../components/Views";
+import Artist from "../components/Artist";
+import { FadeInView, TitleView } from "../components/Views";
 
 export default class HomeScreen extends React.Component {
   state = {
     isLoading: true,
     events: null
   };
+
+  _keyExtractor = (item, index) => item.url;
 
   _fetchEvents = () => {
     this.setState({
@@ -82,30 +85,27 @@ export default class HomeScreen extends React.Component {
             />
             <Text style={{ fontFamily: "font2", fontSize: 50 }}>Hello!</Text>
           </FadeInView>
+          <TitleView title="Upcoming Event"/>
           <View
             style={{
               margin: 15
             }}
           >
-            <Text
-              style={{
-                position: "absolute",
-                color: "white",
-                fontSize: 23,
-                fontWeight: "bold",
-                opacity: 0.3,
-                top: 10,
-                right: 15,
-                zIndex: 2
-              }}
-            >
-              Next Event
-            </Text>
             <Event
               {...this.state.events[0]}
               navigation={this.props.navigation}
             />
           </View>
+          <TitleView title="Upcoming Artists"/>
+
+            <FlatList
+              style={{ margin: 15, marginTop: 0 }}
+              keyExtractor={this._keyExtractor}
+              renderItem={({ item, index }) => (
+                <Artist {...item} index={index} />
+              )}
+              data={this.state.events[0].artists}
+            />
         </ScrollView>
       </ImageBackground>
     );

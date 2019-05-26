@@ -82,7 +82,7 @@ export default class EventScreen extends React.Component {
           <View>
             <TitleView title="Artists" />
             <FlatList
-              style={{ margin: 15 }}
+              style={{ margin: 15, marginTop: 0 }}
               keyExtractor={this._keyExtractor}
               renderItem={({ item, index }) => (
                 <Artist {...item} index={index} />
