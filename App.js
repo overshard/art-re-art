@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView, StatusBar } from 'react-native';
 import { AppLoading } from 'expo';
 
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
@@ -44,6 +44,10 @@ export default class App extends React.Component {
     if (this.state.appIsReady) {
       return (
         <View style={{ flex: 1, justifyContent: 'center' }}>
+          <StatusBar
+            backgroundColor="black"
+            barStyle="light-content"
+          />
           <AppContainer />
         </View>
       );
