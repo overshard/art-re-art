@@ -85,7 +85,11 @@ export default class EventScreen extends React.Component {
               style={{ margin: 15, marginTop: 0 }}
               keyExtractor={this._keyExtractor}
               renderItem={({ item, index }) => (
-                <Artist {...item} index={index} />
+                <Artist
+                  {...item}
+                  index={index}
+                  navigation={this.props.navigation}
+                />
               )}
               data={this.state.event.artists}
             />

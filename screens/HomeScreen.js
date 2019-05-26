@@ -59,7 +59,10 @@ export default class HomeScreen extends React.Component {
     }
 
     return (
-      <ImageBackground source={require("../assets/images/bg4.png")} style={{width: '100%', height: '100%'}}>
+      <ImageBackground
+        source={require("../assets/images/bg4.png")}
+        style={{ width: "100%", height: "100%" }}
+      >
         <ScrollView>
           <FadeInView
             style={{
@@ -75,17 +78,17 @@ export default class HomeScreen extends React.Component {
                 height: Dimensions.get("window").height - 200,
                 width: 200,
                 position: "absolute",
-                opacity: .1,
+                opacity: 0.1,
                 bottom: 0,
                 top: 0,
                 right: -10,
                 left: "auto",
-                zIndex: -1,
+                zIndex: -1
               }}
             />
             <Text style={{ fontFamily: "font2", fontSize: 50 }}>Hello!</Text>
           </FadeInView>
-          <TitleView title="Upcoming Event"/>
+          <TitleView title="Upcoming Event" />
           <View
             style={{
               margin: 15
@@ -96,16 +99,20 @@ export default class HomeScreen extends React.Component {
               navigation={this.props.navigation}
             />
           </View>
-          <TitleView title="Upcoming Artists"/>
+          <TitleView title="Upcoming Artists" />
 
-            <FlatList
-              style={{ margin: 15, marginTop: 0 }}
-              keyExtractor={this._keyExtractor}
-              renderItem={({ item, index }) => (
-                <Artist {...item} index={index} />
-              )}
-              data={this.state.events[0].artists}
-            />
+          <FlatList
+            style={{ margin: 15, marginTop: 0 }}
+            keyExtractor={this._keyExtractor}
+            renderItem={({ item, index }) => (
+              <Artist
+                {...item}
+                index={index}
+                navigation={this.props.navigation}
+              />
+            )}
+            data={this.state.events[0].artists}
+          />
         </ScrollView>
       </ImageBackground>
     );

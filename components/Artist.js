@@ -1,9 +1,19 @@
 import React from "react";
-import { View, Text, Button, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TouchableOpacity,
+  TouchableHighlight
+} from "react-native";
 import { WebBrowser, LinearGradient } from "expo";
 import { AntDesign } from "@expo/vector-icons";
 
 export default class Artist extends React.Component {
+  _showArtist = () => {
+    this.props.navigation.navigate("Artist", { url: this.props.url });
+  };
+
   _openInstagram = () => {
     return WebBrowser.openBrowserAsync(this.props.instagram);
   };
@@ -49,16 +59,22 @@ export default class Artist extends React.Component {
         >
           {this.props.name}
         </Text>
-        <View style={{ justifyContent: "center", flex: 2 }}>
-          <Text style={{ fontWeight: "bold", color: "white" }}>
-            {this.props.name}
-          </Text>
-          {this.props.medium ? (
-            <Text style={{ color: "white", fontFamily: "font2" }}>
-              {this._medium()}
+
+        <TouchableHighlight
+          onPress={() => this._showArtist()}
+          style={{ justifyContent: "center", flex: 2 }}
+        >
+          <View>
+            <Text style={{ fontWeight: "bold", color: "white" }}>
+              {this.props.name}
             </Text>
-          ) : null}
-        </View>
+            {this.props.medium ? (
+              <Text style={{ color: "white", fontFamily: "font2" }}>
+                {this._medium()}
+              </Text>
+            ) : null}
+          </View>
+        </TouchableHighlight>
         <View
           style={{
             alignItems: "center",

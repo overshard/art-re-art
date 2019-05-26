@@ -81,6 +81,7 @@ export default class ArtistsScreen extends React.Component {
               <Artist
                 {...item}
                 index={index}
+                navigation={this.props.navigation}
               />
             )}
             data={this.state.artists}
