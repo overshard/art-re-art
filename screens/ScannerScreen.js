@@ -57,13 +57,12 @@ export default class ScannerScreen extends React.Component {
 
         <Image
           source={require("../assets/images/scan-overlay.png")}
-          style={[
-            StyleSheet.absoluteFillObject,
-            {
-              zIndex: 2,
-              position: 'absolute',
-            }
-          ]}
+          style={{
+            zIndex: 2,
+            position: "absolute",
+            width: Dimensions.get("window").width,
+            height: Dimensions.get("window").height
+          }}
         />
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
