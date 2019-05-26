@@ -6,7 +6,7 @@ import { TitleView } from "../components/Views";
 export default class FAQScreen extends React.Component {
   render() {
     return (
-      <ImageBackground source={require("../assets/images/bg1.png")} style={{width: '100%', height: '100%'}}>
+      <ImageBackground source={require("../assets/images/bg2.png")} style={{width: '100%', height: '100%'}}>
         <ScrollView>
           <TitleView
             title="FAQ"
