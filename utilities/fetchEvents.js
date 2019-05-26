@@ -1,4 +1,3 @@
-import { AsyncStorage } from 'react-native';
 import moment from "moment";
 
 export default async function fetchEvents() {
@@ -11,9 +10,7 @@ export default async function fetchEvents() {
         console.error(err);
       });
 
-    let eventLocationsFetch = fetch(
-      "http://artreart.com/api/eventlocations/"
-    )
+    let eventLocationsFetch = fetch("http://artreart.com/api/eventlocations/")
       .then(res => {
         return res.json();
       })
@@ -38,30 +35,7 @@ export default async function fetchEvents() {
       .catch(err => {
         console.error(err);
       });
-  }
+  };
 
-  _storeData = async (events) => {
-    try {
-      await AsyncStorage.setItem('@ArtReArtStore:events', events);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  _retrieveData = async () => {
-    try {
-      let events = await AsyncStorage.getItem('@ArtReArtStore:events');
-      if (events !== null) {
-        return JSON.parse(events);
-      } else {
-        events = await _fetchData();
-        _storeData(JSON.stringify(events));
-        return events;
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  return _retrieveData();
+  return _fetchData();
 }
