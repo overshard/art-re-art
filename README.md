@@ -52,7 +52,7 @@ atleast once to make sure it's fully installed.
 
 ## Home
 
--during "off-season" just have info about next upcomnig event with share/notification options
+-during "off-season" just have info about next upcomnig event with share/notification options and a feed for the instagram posts?
 -day of event have all the ways to explore or participate in event in block format
   -see artwork
   -participating artists - click to see list
