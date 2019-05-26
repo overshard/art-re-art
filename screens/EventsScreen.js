@@ -5,7 +5,8 @@ import {
   FlatList,
   ActivityIndicator,
   Text,
-  RefreshControl
+  RefreshControl,
+  ImageBackground
 } from "react-native";
 
 import Event from "../components/Event";
@@ -51,35 +52,37 @@ export default class EventsScreen extends React.Component {
     }
 
     return (
-      <ScrollView
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.isLoading}
-            onRefresh={this._fetchEvents}
-          />
-        }
-      >
-        <TitleView
-          title="Events"
-          description="Shows can happen anytime anywhere! Keep our app installed to get notifications of new events."
-        />
-        <FlatList
-          style={{ margin: 15 }}
-          keyExtractor={this._keyExtractor}
-          renderItem={({ item }) => (
-            <Event
-              title={item.title}
-              dateDay={item.dateDay}
-              dateMonth={item.dateMonth}
-              dateTime={item.dateTime}
-              locationName={item.location.title}
-              location={item.location.street}
-              event={item}
+      <ImageBackground source={require("../assets/images/bg5.png")} style={{width: '100%', height: '100%'}}>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.isLoading}
+              onRefresh={this._fetchEvents}
             />
-          )}
-          data={this.state.dataSource}
-        />
-      </ScrollView>
+          }
+        >
+          <TitleView
+            title="Events"
+            description="Shows can happen anytime anywhere! Keep our app installed to get notifications of new events."
+          />
+          <FlatList
+            style={{ margin: 15 }}
+            keyExtractor={this._keyExtractor}
+            renderItem={({ item }) => (
+              <Event
+                title={item.title}
+                dateDay={item.dateDay}
+                dateMonth={item.dateMonth}
+                dateTime={item.dateTime}
+                locationName={item.location.title}
+                location={item.location.street}
+                event={item}
+              />
+            )}
+            data={this.state.dataSource}
+          />
+        </ScrollView>
+      </ImageBackground>
     );
   }
 }
