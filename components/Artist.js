@@ -12,6 +12,14 @@ export default class Artist extends React.Component {
     return WebBrowser.openBrowserAsync(this.props.website);
   };
 
+  _medium = () => {
+    return this.props.medium
+      .map(medium => {
+        return medium.title;
+      })
+      .join(", ");
+  };
+
   render() {
     return (
       <LinearGradient
@@ -46,7 +54,9 @@ export default class Artist extends React.Component {
             {this.props.name}
           </Text>
           {this.props.medium ? (
-            <Text style={{ color: "white", fontFamily: "font2" }}>{this.props.medium.join(', ')}</Text>
+            <Text style={{ color: "white", fontFamily: "font2" }}>
+              {this._medium()}
+            </Text>
           ) : null}
         </View>
         <View

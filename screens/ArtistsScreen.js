@@ -16,7 +16,7 @@ import fetchArtists from "../utilities/fetchArtists";
 export default class ArtistsScreen extends React.Component {
   state = {
     isLoading: true,
-    dataSource: null
+    artists: null
   };
 
   _keyExtractor = (item, index) => item.url;
@@ -24,15 +24,22 @@ export default class ArtistsScreen extends React.Component {
   _fetchArtists = async () => {
     this.setState({
       isLoading: true,
-      dataSource: null
+      artists: null
     });
 
-    let artists = await fetchArtists();
-
-    this.setState({
-      isLoading: false,
-      dataSource: artists
-    });
+    return fetch("http://artreart.com/api/artists/")
+      .then(res => {
+        return res.json();
+      })
+      .then(resJson => {
+        this.setState({
+          isLoading: false,
+          artists: resJson
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   componentDidMount() {
@@ -73,15 +80,11 @@ export default class ArtistsScreen extends React.Component {
             keyExtractor={this._keyExtractor}
             renderItem={({ item, index }) => (
               <Artist
+                {...item}
                 index={index}
-                name={item.name}
-                instagram={item.instagram}
-                website={item.website}
-                medium={item.medium}
-                events={item.events}
               />
             )}
-            data={this.state.dataSource}
+            data={this.state.artists}
           />
         </ScrollView>
       </ImageBackground>
