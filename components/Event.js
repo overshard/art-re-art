@@ -8,29 +8,16 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import EventModal from "./EventModal";
-
 export default class Event extends React.Component {
-  state = {
-    modalVisible: false
-  };
-
-  _modalVisible = () => {
-    this.setState({
-      modalVisible: !this.state.modalVisible
-    });
+  _showEvent = () => {
+    this.props.navigation.navigate("Event", { url: this.props.event.url });
   };
 
   render() {
     return (
       <View>
-        <EventModal
-          modalVisible={this.state.modalVisible}
-          _modalVisible={this._modalVisible}
-          event={this.props.event}
-        />
         <TouchableHighlight
-          onPress={() => this._modalVisible()}
+          onPress={() => this._showEvent()}
           style={{
             marginBottom: 15,
             backgroundColor: "#ffffff",
@@ -44,17 +31,23 @@ export default class Event extends React.Component {
                 resizeMode: "cover",
                 width: Dimensions.get("window").width - 30,
                 height: 200,
-                borderRadius: 10,
+                borderRadius: 10
               }}
             />
             <View
               style={{
                 padding: 25,
                 position: "absolute",
-                bottom: 0,
+                bottom: 0
               }}
             >
-              <View style={{ flexDirection: "row", marginBottom: 10, backgroundColor: "red" }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginBottom: 10,
+                  backgroundColor: "red"
+                }}
+              >
                 <View
                   style={{
                     alignItems: "center",
@@ -74,7 +67,11 @@ export default class Event extends React.Component {
                     {this.props.dateDay}
                   </Text>
                   <Text
-                    style={{ letterSpacing: 2, textTransform: "uppercase", fontFamily: "font2" }}
+                    style={{
+                      letterSpacing: 2,
+                      textTransform: "uppercase",
+                      fontFamily: "font2"
+                    }}
                   >
                     {this.props.dateMonth}
                   </Text>
@@ -87,7 +84,7 @@ export default class Event extends React.Component {
                       textTransform: "uppercase",
                       color: "white",
                       marginLeft: 15,
-                      letterSpacing: 1,
+                      letterSpacing: 1
                     }}
                   >
                     {this.props.title}
@@ -106,11 +103,17 @@ export default class Event extends React.Component {
                   </Text>
                 </View>
               </View>
-              <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: "red" }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  backgroundColor: "red"
+                }}
+              >
                 <AntDesign
                   name="enviroment"
                   size={20}
-                  style={{ color: "black", marginRight: 10, padding: 3, }}
+                  style={{ color: "black", marginRight: 10, padding: 3 }}
                 />
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                   <Text
@@ -134,7 +137,13 @@ export default class Event extends React.Component {
                   >
                     |
                   </Text>
-                  <Text style={{ color: "white", fontSize: 14, fontFamily: "font2" }}>
+                  <Text
+                    style={{
+                      color: "white",
+                      fontSize: 14,
+                      fontFamily: "font2"
+                    }}
+                  >
                     {this.props.location}
                   </Text>
                 </View>

@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import ScannerScreen from "../screens/ScannerScreen";
 import AboutScreen from "../screens/AboutScreen";
+import EventScreen from "../screens/EventScreen";
 
 import BottomTabNavigator from "./BottomTabNavigator";
 
@@ -36,6 +37,9 @@ const StackNavigatorRouteConfigs = {
   },
   About: {
     screen: AboutScreen
+  },
+  Event: {
+    screen: EventScreen
   }
 };
 

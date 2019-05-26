@@ -77,6 +77,7 @@ export default class EventsScreen extends React.Component {
                 locationName={item.location.title}
                 location={item.location.street}
                 event={item}
+                navigation={this.props.navigation}
               />
             )}
             data={this.state.dataSource}

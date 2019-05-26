@@ -105,6 +105,7 @@ export default class HomeScreen extends React.Component {
               locationName={this.state.events[0].location.title}
               location={this.state.events[0].location.street}
               event={this.state.events[0]}
+              navigation={this.props.navigation}
             />
           </View>
         </ScrollView>
