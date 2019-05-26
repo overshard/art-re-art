@@ -56,19 +56,27 @@ export default class HomeScreen extends React.Component {
         <ScrollView>
           <FadeInView
             style={{
-              justifyContent: "center",
-              alignItems: "center",
+              // justifyContent: "center",
+              // alignItems: "center",
               margin: 15,
               marginTop: 30
             }}
           >
             <Image
-              source={require("../assets/images/art-re-art-logo.png")}
+              source={require("../assets/images/artreart-red-rotate.png")}
               style={{
-                width: Dimensions.get("window").width - 100,
-                height: Dimensions.get("window").width - 100
+                height: Dimensions.get("window").height - 200,
+                width: 200,
+                position: "absolute",
+                opacity: .1,
+                bottom: 0,
+                top: 0,
+                right: -10,
+                left: "auto",
+                zIndex: -1,
               }}
             />
+            <Text style={{ fontFamily: "font2", fontSize: 50 }}>Hello!</Text>
           </FadeInView>
           <View
             style={{
