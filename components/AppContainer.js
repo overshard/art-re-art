@@ -12,7 +12,6 @@ import HomeScreen from "../screens/HomeScreen";
 import EventsScreen from "../screens/EventsScreen";
 import ScannerScreen from "../screens/ScannerScreen";
 import AboutScreen from "../screens/AboutScreen";
-import SettingsScreen from "../screens/SettingsScreen";
 import ArtistsScreen from "../screens/ArtistsScreen";
 import FAQScreen from "../screens/FAQScreen";
 
