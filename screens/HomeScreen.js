@@ -13,6 +13,8 @@ import Event from "../components/Event";
 import { TitleText } from "../components/Texts";
 import fetchEvents from "../utilities/fetchEvents";
 
+import { FadeInView } from "../components/Views";
+
 export default class HomeScreen extends React.Component {
   state = {
     isLoading: true,
@@ -52,7 +54,7 @@ export default class HomeScreen extends React.Component {
     return (
       <ImageBackground source={require("../assets/images/bg4.png")} style={{width: '100%', height: '100%'}}>
         <ScrollView>
-          <View
+          <FadeInView
             style={{
               justifyContent: "center",
               alignItems: "center",
@@ -67,7 +69,7 @@ export default class HomeScreen extends React.Component {
                 height: Dimensions.get("window").width - 100
               }}
             />
-          </View>
+          </FadeInView>
           <View
             style={{
               margin: 15
