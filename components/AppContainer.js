@@ -61,6 +61,9 @@ const BottomTabNavigator = createBottomTabNavigator({
   },
   activeTintColor: 'red',
   inactiveTintColor: 'white',
+  labelStyle: {
+    fontSize: 10,
+  },
 }});
 
 const StackNavigator = createStackNavigator(
