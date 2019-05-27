@@ -5,10 +5,11 @@ import {
   Text,
   ImageBackground,
   ActivityIndicator,
-  FlatList,
-  Button
+  Button,
+  Image,
+  Dimensions
 } from "react-native";
-import { MapView, WebBrowser } from "expo";
+import { WebBrowser } from "expo";
 
 import { TitleView } from "../components/Views";
 
@@ -72,6 +73,33 @@ export default class ArtistScreen extends React.Component {
         style={{ width: "100%", height: "100%" }}
       >
         <ScrollView>
+          <ScrollView
+            horizontal={true}
+            snapToInterval={Dimensions.get("window").width}
+            showsHorizontalScrollIndicator={false}
+          >
+            <Image
+              source={require("../assets/images/placeholder.jpg")}
+              style={{
+                width: Dimensions.get("window").width,
+                height: 300
+              }}
+            />
+            <Image
+              source={require("../assets/images/placeholder.jpg")}
+              style={{
+                width: Dimensions.get("window").width,
+                height: 300
+              }}
+            />
+            <Image
+              source={require("../assets/images/placeholder.jpg")}
+              style={{
+                width: Dimensions.get("window").width,
+                height: 300
+              }}
+            />
+          </ScrollView>
           <TitleView title="Artist" />
           <View style={{ margin: 15, marginTop: 0 }}>
             <Text>Name: {this.state.artist.name}</Text>
