@@ -8,6 +8,7 @@ import ScannerScreen from "../screens/ScannerScreen";
 import AboutScreen from "../screens/AboutScreen";
 import EventScreen from "../screens/EventScreen";
 import ArtistScreen from "../screens/ArtistScreen";
+import HuntScreen from "../screens/HuntScreen";
 
 import BottomTabNavigator from "./BottomTabNavigator";
 
@@ -44,6 +45,9 @@ const StackNavigatorRouteConfigs = {
   },
   Artist: {
     screen: ArtistScreen
+  },
+  Hunt: {
+    screen: HuntScreen
   }
 };
 

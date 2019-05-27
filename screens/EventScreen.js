@@ -5,9 +5,11 @@ import {
   Text,
   ImageBackground,
   ActivityIndicator,
-  FlatList
+  FlatList,
+  Button
 } from "react-native";
 import { MapView } from "expo";
+import moment from "moment";
 
 import { TitleView } from "../components/Views";
 import Artist from "../components/Artist";
@@ -17,6 +19,17 @@ export default class EventScreen extends React.Component {
   state = {
     isLoading: true,
     event: null
+  };
+
+  _eventStart = () => {
+    let start = moment(this.state.event.datetime);
+    let now = moment();
+    if (start > now) return false;
+    else return true;
+  };
+
+  _goToHunt = () => {
+    return this.props.navigation.navigate("Hunt");
   };
 
   _keyExtractor = (item, index) => item.url;
@@ -75,6 +88,21 @@ export default class EventScreen extends React.Component {
               }}
             />
           </MapView>
+          <TitleView
+            title="Scavenger Hunt"
+            description={
+              <Text>
+                Scavenger hunt active? {this._eventStart() ? "Yes" : "No"}
+              </Text>
+            }
+          />
+          <View style={{ marginBottom: 30 }}>
+            <Button
+              title="Scavenger Hunt"
+              onPress={this._goToHunt}
+              color="#841584"
+            />
+          </View>
           <TitleView title="Event" />
           <View style={{ margin: 15, marginTop: 0 }}>
             <Event {...this.state.event} navigation={this.props.navigation} />
