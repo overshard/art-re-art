@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Button, Dimensions, Image } from "react-native";
 import { Permissions, BarCodeScanner } from "expo";
+import parse from "url-parse";
 
 import { TitleView } from "../components/Views";
 
@@ -14,6 +15,29 @@ export default class ScannerScreen extends React.Component {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === "granted" });
   }
+
+  handleBarCodeScanned = ({ type, data }) => {
+    this.setState({ scanned: true });
+    let url = parse(data);
+    if (url.hostname === "artreart.com") {
+      let path = url.pathname.split("/");
+      if (path[2] === "events") {
+        this.props.navigation.navigate("Event", { url: data });
+        this.setState({ scanned: false });
+      }
+      else if (path[2] === "artists") {
+        this.props.navigation.navigate("Artist", { url: data });
+        this.setState({ scanned: false });
+      }
+      else {
+        alert("Not a valid QR code, please try another!");
+        this.setState({ scanned: false });
+      }
+    } else {
+      alert("Not a valid QR code, please try another!");
+      this.setState({ scanned: false });
+    }
+  };
 
   render() {
     const { hasCameraPermission, scanned } = this.state;
@@ -68,19 +92,7 @@ export default class ScannerScreen extends React.Component {
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
           style={StyleSheet.absoluteFillObject}
         />
-
-        {scanned && (
-          <Button
-            title={"Tap to Scan Again"}
-            onPress={() => this.setState({ scanned: false })}
-          />
-        )}
       </View>
     );
   }
-
-  handleBarCodeScanned = ({ type, data }) => {
-    this.setState({ scanned: true });
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-  };
 }
