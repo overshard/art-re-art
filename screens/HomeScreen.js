@@ -27,7 +27,7 @@ export default class HomeScreen extends React.Component {
       isLoading: true,
       events: null
     });
-    return fetch("http://artreart.com/api/events/")
+    return fetch("https://www.artreart.com/api/events/")
       .then(res => {
         return res.json();
       })

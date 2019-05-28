@@ -26,7 +26,7 @@ export default class ArtistsScreen extends React.Component {
       artists: null
     });
 
-    return fetch("http://artreart.com/api/artists/")
+    return fetch("https://www.artreart.com/api/artists/")
       .then(res => {
         return res.json();
       })
