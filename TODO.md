@@ -2,10 +2,6 @@
 
 Things that we still need to get done, feel free to add to the list.
 
-## Notifications
-
-- Day of event, new upcoming event
-
 ## HomeScreen
 
 - With upcoming event show card for upcoming event, share, notification options, instagram feed
@@ -32,3 +28,12 @@ Things that we still need to get done, feel free to add to the list.
 - Can take a picture while at the location to upload
 - Uploads need to be verified
 - Persistent for all events, clicking on a past event you can pull up the gallery
+
+## Notifications
+
+- Day of event, new upcoming event
+
+## On release
+
+- For Android deploys we need to setup Google Maps mobile API key:
+  https://docs.expo.io/versions/v32.0.0/sdk/map-view/
