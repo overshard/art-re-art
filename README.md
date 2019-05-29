@@ -13,17 +13,6 @@ atleast once to make sure it's fully installed.
     npm i
     npm start
 
-## Functionality
-
-- QR Code Scanner
-- Events Directory
-- Artists Directory
-- Art Work Directory
-- About Art/Re/Art
-- Settings to configure notifications, signup for things?
-- Event goer gallery for people to take images and upload on the spot
-- Scavenger hunt
-
 ## Documentation
 
 - Expo SDK: https://docs.expo.io/versions/v32.0.0/sdk/overview/

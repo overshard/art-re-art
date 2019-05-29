@@ -26,3 +26,9 @@ Things that we still need to get done, feel free to add to the list.
 
 - Allow for entering answers to hints
 - On completing the hunt show fireworks screen with notification to organizers
+
+## GalleryScreen
+
+- Can take a picture while at the location to upload
+- Uploads need to be verified
+- Persistent for all events, clicking on a past event you can pull up the gallery
