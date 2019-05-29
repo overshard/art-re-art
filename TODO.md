@@ -37,6 +37,13 @@ Things that we still need to get done, feel free to add to the list.
 - Improve design for accordion
 - Add all data from website about page to model, api, and then fetch into app
 
+## Artist component
+
+- Entire component should be touchable to go to artist
+- Remove instagram and website links
+- Debug why large text overlay only works on Android and not iOS
+- Make gradient slight transparent and put image from artist behind it
+
 ## Notifications
 
 - Day of event, new upcoming event
