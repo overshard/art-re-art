@@ -8,6 +8,7 @@ import {
   RefreshControl,
   ImageBackground
 } from "react-native";
+import moment from "moment";
 
 import Event from "../components/Event";
 import { TitleView } from "../components/Views";
@@ -57,7 +58,10 @@ export default class EventsScreen extends React.Component {
     }
 
     return (
-      <ImageBackground source={require("../assets/images/bg5.png")} style={{width: '100%', height: '100%'}}>
+      <ImageBackground
+        source={require("../assets/images/bg5.png")}
+        style={{ width: "100%", height: "100%" }}
+      >
         <ScrollView
           refreshControl={
             <RefreshControl
@@ -67,19 +71,29 @@ export default class EventsScreen extends React.Component {
           }
         >
           <TitleView
-            title="Events"
+            title="Upcoming Events"
             description="Shows can happen anytime anywhere! Keep our app installed to get notifications of new events."
           />
           <FlatList
             style={{ margin: 15 }}
             keyExtractor={this._keyExtractor}
             renderItem={({ item }) => (
-              <Event
-                {...item}
-                navigation={this.props.navigation}
-              />
+              <Event {...item} navigation={this.props.navigation} />
             )}
-            data={this.state.events}
+            data={this.state.events.filter(event => {
+              return moment(event.datetime) > moment();
+            })}
+          />
+          <TitleView title="Past Events" />
+          <FlatList
+            style={{ margin: 15 }}
+            keyExtractor={this._keyExtractor}
+            renderItem={({ item }) => (
+              <Event {...item} navigation={this.props.navigation} />
+            )}
+            data={this.state.events.filter(event => {
+              return moment(event.datetime) < moment();
+            })}
           />
         </ScrollView>
       </ImageBackground>

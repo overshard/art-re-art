@@ -7,10 +7,6 @@ Things that we still need to get done, feel free to add to the list.
 - With upcoming event show card for upcoming event, share, notification options, instagram feed
 - On day of event, show EventsScreen for that event
 
-## EventsScreen
-
-- Separate upcoming and past event lists
-
 ## EventScreen
 
 - Schedule of performances
