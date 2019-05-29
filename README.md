@@ -38,37 +38,3 @@ atleast once to make sure it's fully installed.
 ## Running emulator on Windows
 
     emulator.exe -avd Pixel_3_API_28 -dns-server 8.8.8.8 &
-
-## Events
-
--event list
-  -event block with date, time, location, title
-  -separated by upcoming and past events
--event pages
-  -artists participating
-  -schedule if there is one (performances? maybe hold off on this until we have more info)
-  -features (i.e. scavenger hunt to win tshirt, etc.)
-  -share - (email or text calendar, add to iOS calendar, add to Google Calendar)
-  -get notified (day of event send notification)
-
-## Home
-
--during "off-season" just have info about next upcomnig event with share/notification options and a feed for the instagram posts?
--day of event have all the ways to explore or participate in event in block format
-  -see artwork
-  -participating artists - click to see list
-  -participate in scavenger hunt
-  -photo gallery
-
-## Scavenger Hunt
-
--list of tasks to be copleted or found
-  -modal pops up when you click on one with an input field to type in an answer OR upload a photo
-  -if correct return to list view but that item is now checked off
-  -if incorrect gives error message
--on last item being checked modal pops up with message and image of my face saying go show your screen to this person
-
-## FAQ
-
--icon in top right when not trophy for scavenger hunt during event (other FAQ is linked on About page)
--add link/button at end to contact
