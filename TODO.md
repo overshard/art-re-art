@@ -29,6 +29,14 @@ Things that we still need to get done, feel free to add to the list.
 - Uploads need to be verified
 - Persistent for all events, clicking on a past event you can pull up the gallery
 
+## AboutScreen
+
+- Website url should open website on press
+- Have a contact email that will open email compose on tap
+- Use fetch to pull data from website
+- Improve design for accordion
+- Add all data from website about page to model, api, and then fetch into app
+
 ## Notifications
 
 - Day of event, new upcoming event
