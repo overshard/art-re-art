@@ -19,7 +19,8 @@ export default class ScannerScreen extends React.Component {
   handleBarCodeScanned = ({ type, data }) => {
     this.setState({ scanned: true });
     let url = parse(data);
-    if (url.hostname === "artreart.com") {
+    console.log(url);
+    if (url.hostname.includes("artreart.com")) {
       let path = url.pathname.split("/");
       if (path[2] === "events") {
         this.props.navigation.navigate("Event", { url: data });
@@ -30,11 +31,9 @@ export default class ScannerScreen extends React.Component {
         this.setState({ scanned: false });
       }
       else {
-        alert("Not a valid QR code, please try another!");
         this.setState({ scanned: false });
       }
     } else {
-      alert("Not a valid QR code, please try another!");
       this.setState({ scanned: false });
     }
   };
