@@ -13,6 +13,7 @@ import {
 import Event from "../components/Event";
 import Artist from "../components/Artist";
 import { FadeInView, TitleView } from "../components/Views";
+import { api } from "../app.config";
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -27,7 +28,7 @@ export default class HomeScreen extends React.Component {
       isLoading: true,
       events: null
     });
-    return fetch("https://www.artreart.com/api/events/")
+    return fetch(api.events)
       .then(res => {
         return res.json();
       })

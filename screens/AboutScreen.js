@@ -11,6 +11,7 @@ import {
 
 import { TitleView } from "../components/Views";
 import Accordion from "../components/Accordion";
+import { api } from "../app.config";
 
 export default class AboutScreen extends React.Component {
   state = {
@@ -26,7 +27,7 @@ export default class AboutScreen extends React.Component {
       about: null
     });
 
-    return fetch("https://www.artreart.com/api/about/")
+    return fetch(api.about)
       .then(res => {
         return res.json();
       })

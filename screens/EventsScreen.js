@@ -12,6 +12,7 @@ import moment from "moment";
 
 import Event from "../components/Event";
 import { TitleView } from "../components/Views";
+import { api } from "../app.config";
 
 export default class EventsScreen extends React.Component {
   state = {
@@ -26,7 +27,7 @@ export default class EventsScreen extends React.Component {
       isLoading: true,
       events: null
     });
-    return fetch("https://www.artreart.com/api/events/")
+    return fetch(api.events)
       .then(res => {
         return res.json();
       })

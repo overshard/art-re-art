@@ -11,6 +11,7 @@ import {
 
 import { TitleView } from "../components/Views";
 import Artist from "../components/Artist";
+import { api } from "../app.config";
 
 export default class ArtistsScreen extends React.Component {
   state = {
@@ -26,7 +27,7 @@ export default class ArtistsScreen extends React.Component {
       artists: null
     });
 
-    return fetch("https://www.artreart.com/api/artists/")
+    return fetch(api.artists)
       .then(res => {
         return res.json();
       })
