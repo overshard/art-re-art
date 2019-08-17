@@ -11,12 +11,11 @@ import {
 
 import { TitleView } from "../components/Views";
 import Accordion from "../components/Accordion";
-import AboutData from "../data/about.json";
 
 export default class AboutScreen extends React.Component {
   state = {
     isLoading: true,
-    about: null,
+    about: null
   };
 
   _keyExtractor = (item, index) => item.question;
@@ -24,7 +23,7 @@ export default class AboutScreen extends React.Component {
   _fetchAbout = async () => {
     this.setState({
       isLoading: true,
-      about: null,
+      about: null
     });
 
     return fetch("https://www.artreart.com/api/about/")
@@ -34,7 +33,7 @@ export default class AboutScreen extends React.Component {
       .then(resJson => {
         this.setState({
           isLoading: false,
-          about: resJson[0]
+          about: resJson
         });
       })
       .catch(err => {
@@ -92,7 +91,7 @@ export default class AboutScreen extends React.Component {
             description={this.state.about.description}
           />
           <View style={{ margin: 15 }}>
-          <View style={{ flexDirection: "row", marginBottom: 10 }}>
+            <View style={{ flexDirection: "row", marginBottom: 10 }}>
               <Text style={{ flex: 1 }}>Website:</Text>
               <Text style={{ flex: 3, fontFamily: "font2" }}>
                 {this.state.about.website}
@@ -108,14 +107,11 @@ export default class AboutScreen extends React.Component {
             </View>
           </View>
           <TitleView title="FAQ" description="Frequently Asked Questions" />
-          <FlatList 
+          <FlatList
             style={{ margin: 15 }}
             keyExtractor={this._keyExtractor}
             renderItem={({ item }) => (
-            <Accordion
-              title={item.question}
-              description={item.answer}
-            />
+              <Accordion title={item.question} description={item.answer} />
             )}
             data={this.state.about.faqs}
           />
