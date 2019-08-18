@@ -19,18 +19,16 @@ export default class ScannerScreen extends React.Component {
   handleBarCodeScanned = ({ type, data }) => {
     this.setState({ scanned: true });
     let url = parse(data);
-    console.log(url);
+    let navUrl = url.href.replace("/mobile", "");
     if (url.hostname.includes("artreart.com")) {
       let path = url.pathname.split("/");
-      if (path[2] === "events") {
-        this.props.navigation.navigate("Event", { url: data });
+      if (path[3] === "events") {
+        this.props.navigation.navigate("Event", { url: navUrl });
         this.setState({ scanned: false });
-      }
-      else if (path[2] === "artists") {
-        this.props.navigation.navigate("Artist", { url: data });
+      } else if (path[3] === "artists") {
+        this.props.navigation.navigate("Artist", { url: navUrl });
         this.setState({ scanned: false });
-      }
-      else {
+      } else {
         this.setState({ scanned: false });
       }
     } else {
