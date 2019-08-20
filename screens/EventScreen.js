@@ -21,13 +21,6 @@ export default class EventScreen extends React.Component {
     event: null
   };
 
-  _eventStart = () => {
-    let start = moment(this.state.event.datetime);
-    let now = moment();
-    if (start > now) return false;
-    else return true;
-  };
-
   _goToHunt = () => {
     return this.props.navigation.navigate("Hunt");
   };
@@ -88,14 +81,7 @@ export default class EventScreen extends React.Component {
               }}
             />
           </MapView>
-          <TitleView
-            title="Scavenger Hunt"
-            description={
-              <Text>
-                Scavenger hunt active? {this._eventStart() ? "Yes" : "No"}
-              </Text>
-            }
-          />
+          <TitleView title="Scavenger Hunt" />
           <View style={{ marginBottom: 30 }}>
             <Button
               title="Scavenger Hunt"
