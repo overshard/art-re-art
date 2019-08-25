@@ -22,7 +22,9 @@ export default class EventScreen extends React.Component {
   };
 
   _goToHunt = () => {
-    return this.props.navigation.navigate("Hunt");
+    return this.props.navigation.navigate("Hunt", {
+      url: this.state.event.hunt
+    });
   };
 
   _keyExtractor = (item, index) => item.url;
@@ -81,14 +83,18 @@ export default class EventScreen extends React.Component {
               }}
             />
           </MapView>
-          <TitleView title="Scavenger Hunt" />
-          <View style={{ marginBottom: 30 }}>
-            <Button
-              title="Scavenger Hunt"
-              onPress={this._goToHunt}
-              color="#841584"
-            />
-          </View>
+          {this.state.event.hunt && (
+            <>
+              <TitleView title="Scavenger Hunt" />
+              <View style={{ marginBottom: 30 }}>
+                <Button
+                  title="Scavenger Hunt"
+                  onPress={this._goToHunt}
+                  color="#841584"
+                />
+              </View>
+            </>
+          )}
           <TitleView title="Event" />
           <View style={{ margin: 15, marginTop: 0 }}>
             <Event {...this.state.event} navigation={this.props.navigation} />
